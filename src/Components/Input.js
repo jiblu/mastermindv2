@@ -21,7 +21,7 @@ const Input = props => {
       <Label text={props.text}/>
       <InputField
         placeholder={props.placeholder}
-        onChange={(e) => props.onChangeHandler(props.id, e)}
+        onChange={(e) => props.onChange(props.id, e)}
         value={props.value}
       />
     </div>

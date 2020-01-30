@@ -20,7 +20,7 @@ const Dropdown = props => {
   return (
     <div>
       <Label text={props.text} />
-      <Select onChange={(e) => props.onChangeHandler(props.id, e)}>
+      <Select onChange={(e) => props.onChange(props.id, e)}>
         {props.list.map((item, i) => {
           return (
             <option key={i}>{item}</option>

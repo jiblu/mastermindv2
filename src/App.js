@@ -3,6 +3,7 @@ import Rodal from 'rodal'
 import 'rodal/lib/rodal.css'
 import Rules from './Containers/Rules'
 import Leaderboard from './Containers/Leaderboard'
+import GameContainer from './Containers/GameContainer'
 import PageDiv from './Components/PageDiv'
 import Text from './Components/Text'
 import Stack from './Components/Stack'
@@ -13,7 +14,7 @@ const App = props => {
   const [showLeaderboard, toggleLeaderboard] = useState(false)
   const RulesModal = props => (
     <Rodal
-      height='300'
+      height={300}
       visible={showRules}
       onClose={() => toggleRules(!showRules)}
     >
@@ -22,7 +23,7 @@ const App = props => {
   )
   const LeaderboardModal = props => (
     <Rodal
-      height='300'
+      height={300}
       visible={showLeaderboard}
       onClose={() => toggleLeaderboard(!showLeaderboard)}
     >
@@ -37,6 +38,7 @@ const App = props => {
         <Button id='rules' onClick={()=>toggleRules(!showRules)}>How To Play</Button>
         <Button id='leaderboard' onClick={()=>toggleLeaderboard(!showLeaderboard)}>Leaderboard</Button>
       </Stack>
+      <GameContainer />
       <RulesModal />
       <LeaderboardModal />
     </PageDiv>
