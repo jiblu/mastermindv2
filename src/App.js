@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Rodal from 'rodal'
+import 'rodal/lib/rodal.css'
+import Rules from './Containers/Rules'
+import Leaderboard from './Containers/Leaderboard'
+import PageDiv from './Components/PageDiv'
+import Text from './Components/Text'
+import Stack from './Components/Stack'
+import Button from './Components/Button'
 
-function App() {
+const App = props => {
+  const [showRules, toggleRules] = useState(false)
+  const [showLeaderboard, toggleLeaderboard] = useState(false)
+  const RulesModal = props => (
+    <Rodal
+      height='300'
+      visible={showRules}
+      onClose={() => toggleRules(!showRules)}
+    >
+      <Rules />
+    </Rodal>
+  )
+  const LeaderboardModal = props => (
+    <Rodal
+      height='300'
+      visible={showLeaderboard}
+      onClose={() => toggleLeaderboard(!showLeaderboard)}
+    >
+      <Leaderboard />
+    </Rodal>
+  )
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <PageDiv>
+      <Text align='center' size='large'>Mastermind v.2</Text>
+      <Stack justify='center'>
+        <Button id='rules' onClick={()=>toggleRules(!showRules)}>How To Play</Button>
+        <Button id='leaderboard' onClick={()=>toggleLeaderboard(!showLeaderboard)}>Leaderboard</Button>
+      </Stack>
+      <RulesModal />
+      <LeaderboardModal />
+    </PageDiv>
+  )
 }
 
-export default App;
+export default App
