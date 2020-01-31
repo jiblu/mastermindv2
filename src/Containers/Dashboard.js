@@ -5,6 +5,7 @@ import { Colors, Metrics } from '../Themes/index'
 import Stack from '../Components/Stack'
 import Text from '../Components/Text'
 import TextDisplay from '../Components/TextDisplay'
+import Input from '../Components/Input'
 
 const SideContainer = styled.div`
   border-radius: 5px;
@@ -33,7 +34,13 @@ const Dashboard = props => {
         <TextDisplay text='Secret Code' value={props.secretCode} />
       </SideContainer>
       <MidContainer>
-        some mid content
+        <Input
+          text='Current Guess'
+          id='currentGuess'
+          placeholder='please enter four digit number'
+          // onChangeHandler={this.onChangeHandler.bind(this)}
+          // value={this.state.currentGuess}
+        />
       </MidContainer>
       <SideContainer>
         <Text
@@ -56,7 +63,8 @@ const mapStateToProps = state => {
     playing: state.playing,
     score: state.score,
     guessesLeft: state.guessesLeft,
-    secretCode: state.secretCode
+    secretCode: state.secretCode,
+    rangeUpperLimit: state.rangeUpperLimit
   }
 }
 
