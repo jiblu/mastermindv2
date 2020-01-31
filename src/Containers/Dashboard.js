@@ -37,7 +37,8 @@ const MidContainer = styled.div`
 class Dashboard extends Component {
 
   state = {
-    currentGuess: null
+    currentGuess: null,
+    alert: null
   }
 
   handleChange (id, e) {
@@ -62,8 +63,8 @@ class Dashboard extends Component {
       })
       
     } else {
-      // create some notification
-      console.log('not a valid number')
+      let alertMsg = `Must be a valid 4 digit number. Each digit must be betweem 0 and ${this.props.rangeUpperLimit}.`
+      alert(alertMsg)
     }
   }
 
