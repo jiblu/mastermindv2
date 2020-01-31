@@ -6,7 +6,9 @@ import Stack from '../Components/Stack'
 import Text from '../Components/Text'
 import TextDisplay from '../Components/TextDisplay'
 import Input from '../Components/Input'
+import Button from '../Components/Button'
 import Guesses from './Guesses'
+import isValidGuess from './isValidGuess'
 
 const MainContainer = styled.div`
   display: flex;
@@ -47,6 +49,11 @@ class Dashboard extends Component {
     })
   }
 
+  handleSubmit () {
+    let { currentGuess } = this.state
+    console.log(isValidGuess(currentGuess))
+  }
+
   render () {
     return (
       <MainContainer>
@@ -70,9 +77,8 @@ class Dashboard extends Component {
             id='currentGuess'
             placeholder='please enter four digit number'
             onChange={this.handleChange.bind(this)}
-            // onChangeHandler={this.onChangeHandler.bind(this)}
-            // value={this.state.currentGuess}
           />
+          <Button onClick={this.handleSubmit.bind(this)}>Submit Guess</Button>
         </MidContainer>
         <SideContainer>
           <Text
