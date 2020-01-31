@@ -10,7 +10,8 @@ const initialState = {
   score: 100,
   guessesLeft: 10,
   secretCode: null,
-  rangeUpperLimit: 7
+  rangeUpperLimit: 7,
+  guesses: []
 }
 
 const rootReducer = (state = initialState, action) => {

@@ -6,13 +6,27 @@ import Stack from '../Components/Stack'
 import Text from '../Components/Text'
 import TextDisplay from '../Components/TextDisplay'
 import Input from '../Components/Input'
+import Guesses from './Guesses'
+
+const MainContainer = styled.div`
+  display: flex;
+  @media (max-width: 900px) {
+    display: block;
+  }
+`
 
 const SideContainer = styled.div`
-  border-radius: 5px;
-  flex-grow: 1
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex-grow: 1;
 `
 
 const MidContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   flex-grow: 6
 `
 
@@ -32,7 +46,7 @@ class Dashboard extends Component {
 
   render () {
     return (
-      <Stack justify='space-between'>
+      <MainContainer>
         <SideContainer>
           <Text
             size='medium'
@@ -65,9 +79,9 @@ class Dashboard extends Component {
           >
             Your Guesses
           </Text>
-          some right content
+          <Guesses guesses={this.props.guesses}/>
         </SideContainer>
-      </Stack>
+      </MainContainer>
     )
   }
 }
@@ -80,7 +94,8 @@ const mapStateToProps = state => {
     score: state.score,
     guessesLeft: state.guessesLeft,
     secretCode: state.secretCode,
-    rangeUpperLimit: state.rangeUpperLimit
+    rangeUpperLimit: state.rangeUpperLimit,
+    guesses: state.guesses
   }
 }
 

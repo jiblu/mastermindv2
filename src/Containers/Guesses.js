@@ -15,6 +15,7 @@ const GuessesHeader = styled.th`
   padding: 1em;
   background: ${Colors.light};
   border-bottom: 2px solid ${Colors.white};
+  font-size: 0.25em
 `
 const GuessesData = styled.td`
   padding: 1em;
