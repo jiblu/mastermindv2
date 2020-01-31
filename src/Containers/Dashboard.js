@@ -18,8 +18,16 @@ const MidContainer = styled.div`
 
 class Dashboard extends Component {
 
+  state = {
+    currentGuess: null
+  }
+
   handleChange (id, e) {
-    console.log(id)
+    // get the current guess
+    // confirm the guess is a valid input
+    // create feedback by comparing input against secretcode
+    // push feedback to feedbacks array
+    // render feedbacks onto dashboard page
   }
 
   render () {
