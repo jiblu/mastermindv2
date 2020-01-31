@@ -15,7 +15,8 @@ const GuessesHeader = styled.th`
   padding: 1em;
   background: ${Colors.light};
   border-bottom: 2px solid ${Colors.white};
-  font-size: 0.25em
+  font-size: 0.25em;
+  width: 80px
 `
 const GuessesData = styled.td`
   padding: 1em;
@@ -29,8 +30,8 @@ const Guesses = props => {
     <GuessesTable>
       <GuessesRow>
         <GuessesHeader>Your Guess</GuessesHeader>
-        <GuessesHeader>Correct Numbers</GuessesHeader>
-        <GuessesHeader>Correct Numbers AND Places</GuessesHeader>
+        <GuessesHeader>Numbers</GuessesHeader>
+        <GuessesHeader>Numbers AND Places</GuessesHeader>
       </GuessesRow>
       {props.guesses.map((guess, i) => {
         return (

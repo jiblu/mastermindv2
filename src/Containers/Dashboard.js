@@ -42,6 +42,9 @@ class Dashboard extends Component {
     // create feedback by comparing input against secretcode
     // push feedback to feedbacks array
     // render feedbacks onto dashboard page
+    this.setState({
+      [id]: e.target.value
+    })
   }
 
   render () {
