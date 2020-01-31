@@ -31,11 +31,13 @@ const rootReducer = (state = initialState, action) => {
         playing: true
       }
     case SAVE_GUESS:
+      let newGuessesLeft = state.guessesLeft-1
       let newGuesses = state.guesses.slice(0)
       newGuesses.push(action.guessObject)
       return {
         ...state,
-        guesses: newGuesses
+        guesses: newGuesses,
+        guessesLeft: newGuessesLeft
       }
     default:
       return state
