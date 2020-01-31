@@ -1,14 +1,12 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { Colors, Metrics } from '../Themes/index'
 import Stack from '../Components/Stack'
-import LeftConsole from '../Containers/LeftConsole'
-import RightConsole from '../Containers/RightConsole'
-import MidConsole from '../Containers/MidConsole'
 import Text from '../Components/Text'
+import TextDisplay from '../Components/TextDisplay'
 
 const SideContainer = styled.div`
-  background-color: ${Colors.light};
   border-radius: 5px;
   flex-grow: 1
 `
@@ -19,7 +17,7 @@ const MidContainer = styled.div`
 
 const Dashboard = props => {
   return (
-    <Stack align='center' justify='space-between'>
+    <Stack justify='space-between'>
       <SideContainer>
         <Text
           size='medium'
@@ -28,10 +26,11 @@ const Dashboard = props => {
         >
           Game Stats
         </Text>
-        <LeftConsole />
+        <TextDisplay text='Username' value={props.username} />
+        <TextDisplay text='Level' value={props.level} />
       </SideContainer>
       <MidContainer>
-        <MidConsole />
+        some mid content
       </MidContainer>
       <SideContainer>
         <Text
@@ -41,10 +40,17 @@ const Dashboard = props => {
         >
           Your Guesses
         </Text>
-        <RightConsole />
+        some right content
       </SideContainer>
     </Stack>
   )
 }
 
-export default Dashboard
+const mapStateToProps = state => {
+  return {
+    username: state.username,
+    level: state.level
+  }
+}
+
+export default connect(mapStateToProps)(Dashboard)

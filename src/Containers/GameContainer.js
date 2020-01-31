@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { Colors, Metrics } from '../Themes/index'
 import Settings from './Settings'
@@ -13,11 +12,7 @@ const ContentDiv = styled.div`
 `
 
 const GameContainer = props => {
-  const Content = props.playing === false ?
-    <Settings /> :
-    <Dashboard
-      username={props.username} 
-    />
+  const Content = props.playing === false ? <Settings /> : <Dashboard />
   return (
     <ContentDiv>
       {Content}
@@ -25,11 +20,13 @@ const GameContainer = props => {
   )
 }
 
-const mapStateToProps = state => {
-  return {
-    playing: state.playing,
-    username: state.username
-  }
-}
+export default GameContainer
 
-export default connect(mapStateToProps)(GameContainer)
+// const mapStateToProps = state => {
+//   return {
+//     playing: state.playing,
+//     username: state.username
+//   }
+// }
+
+// export default connect(mapStateToProps)(GameContainer)
