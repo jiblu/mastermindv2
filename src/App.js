@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Colors } from './Themes/index'
 import Rodal from 'rodal'
 import 'rodal/lib/rodal.css'
 import Rules from './Containers/Rules'
@@ -35,8 +36,8 @@ const App = props => {
     <PageDiv>
       <Text align='center' size='large'>Mastermind v.2</Text>
       <Stack justify='center'>
-        <Button id='rules' onClick={() => toggleRules(!showRules)}>How To Play</Button>
-        <Button id='leaderboard' onClick={() => toggleLeaderboard(!showLeaderboard)}>Leaderboard</Button>
+        <Button color={Colors.darkGray} bgcolor={Colors.light} id='rules' onClick={() => toggleRules(!showRules)}>How To Play</Button>
+        <Button color={Colors.darkGray} bgcolor={Colors.light} id='leaderboard' onClick={() => toggleLeaderboard(!showLeaderboard)}>Leaderboard</Button>
       </Stack>
       <GameContainer />
       <RulesModal />

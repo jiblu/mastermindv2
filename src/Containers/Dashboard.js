@@ -31,22 +31,20 @@ const MidContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-grow: 6
+  flex-grow: 4;
+  border-radius: 5px;
+  background-color: ${Colors.lightGray};
+  padding: 15px 0;
+  margin: 15px 0;
 `
 
 class Dashboard extends Component {
 
   state = {
-    currentGuess: null,
-    alert: null
+    currentGuess: null
   }
 
   handleChange (id, e) {
-    // get the current guess
-    // confirm the guess is a valid input
-    // create feedback by comparing input against secretcode
-    // push feedback to feedbacks array
-    // render feedbacks onto dashboard page
     this.setState({
       [id]: e.target.value
     })
@@ -92,7 +90,10 @@ class Dashboard extends Component {
             placeholder='please enter four digit number'
             onChange={this.handleChange.bind(this)}
           />
-          <Button onClick={this.handleSubmit.bind(this)}>Submit Guess</Button>
+          <Stack justify='center'>
+            <Button bgcolor={Colors.white} color={Colors.primary} onClick={this.handleSubmit.bind(this)}>Give Up</Button>
+            <Button onClick={this.handleSubmit.bind(this)}>Submit Guess</Button>
+          </Stack>
         </MidContainer>
         <SideContainer>
           <Text

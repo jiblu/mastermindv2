@@ -2,8 +2,8 @@ import styled from 'styled-components'
 import { Colors, Metrics } from '../Themes/index'
 
 const Button = styled.button`
-  background-color: ${Colors.primary};
-  color: ${Colors.primaryAccent};
+  background-color: ${props => props.bgcolor ? props.bgcolor : Colors.primary};
+  color: ${props => props.color ? props.color : Colors.primaryAccent};
   border-radius: ${Metrics.radiusSmall}px;
   font-size: ${Metrics.fontSize.medium}px;
   width: ${Metrics.buttonWidth}px;

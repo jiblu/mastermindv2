@@ -12,14 +12,14 @@ const GuessesRow = styled.tr`
 `
 
 const GuessesHeader = styled.th`
-  padding: 1em;
+  padding: 0.9em;
   background: ${Colors.light};
   border-bottom: 2px solid ${Colors.white};
   font-size: 0.25em;
-  width: 80px
+  width: 60px
 `
 const GuessesData = styled.td`
-  padding: 1em;
+  padding: 0.9em;
   background: ${Colors.light};
   border-bottom: 2px solid ${Colors.white};
   text-align: center

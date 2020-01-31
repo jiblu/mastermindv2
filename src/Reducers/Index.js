@@ -16,6 +16,9 @@ const initialState = {
 }
 
 const rootReducer = (state = initialState, action) => {
+  const newGuessesLeft = state.guessesLeft - 1
+  const newGuesses = state.guesses.slice(0)
+
   switch (action.type) {
     case SAVE_SETTINGS:
       return {
@@ -31,8 +34,6 @@ const rootReducer = (state = initialState, action) => {
         playing: true
       }
     case SAVE_GUESS:
-      let newGuessesLeft = state.guessesLeft-1
-      let newGuesses = state.guesses.slice(0)
       newGuesses.push(action.guessObject)
       return {
         ...state,
