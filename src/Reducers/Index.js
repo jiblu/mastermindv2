@@ -1,5 +1,4 @@
 import {
-  SAVE_USERNAME,
   SAVE_SETTINGS,
   START_GAME
 } from '../Actions/Index'
@@ -12,11 +11,6 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SAVE_USERNAME:
-      return {
-        ...state,
-        username: action.username
-      }
     case SAVE_SETTINGS:
       return {
         ...state,
@@ -29,9 +23,7 @@ const rootReducer = (state = initialState, action) => {
         playing: true
       }
     default:
-      return {
-        ...state
-      }
+      return state
   }
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { Colors, Metrics } from '../Themes/index'
@@ -13,19 +13,22 @@ const ContentDiv = styled.div`
 `
 
 const GameContainer = props => {
-  const [playing, toggleGame] = useState(false)
-  const Content = props.playing === false ? <Settings /> : <Dashboard />
+  const Content = props.playing === false ?
+    <Settings /> :
+    <Dashboard
+      username={props.username} 
+    />
   return (
     <ContentDiv>
       {Content}
-      {props.playing.toString()}
     </ContentDiv>
   )
 }
 
 const mapStateToProps = state => {
   return {
-    playing: state.playing
+    playing: state.playing,
+    username: state.username
   }
 }
 

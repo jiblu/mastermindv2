@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { saveUsername, saveSettings, startGame } from '../Actions/Index'
+import { saveSettings, startGame } from '../Actions/Index'
 import styled from 'styled-components'
 import { Colors, Metrics } from '../Themes/index'
 import Stack from '../Components/Stack'
@@ -64,7 +64,7 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = { saveUsername, saveSettings, startGame }
+const mapDispatchToProps = { saveSettings, startGame }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Settings)
 
