@@ -18,7 +18,7 @@ const InputField = styled.input`
 const Input = props => {
   return (
     <div>
-      <Label text={props.text}/>
+      <Label text={props.text} />
       <InputField
         placeholder={props.placeholder}
         onChange={(e) => props.onChange(props.id, e)}

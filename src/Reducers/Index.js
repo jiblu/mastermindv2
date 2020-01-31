@@ -1,6 +1,7 @@
 import {
   SAVE_SETTINGS,
-  START_GAME
+  START_GAME,
+  SAVE_GUESS
 } from '../Actions/Index'
 
 const initialState = {
@@ -28,6 +29,13 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         playing: true
+      }
+    case SAVE_GUESS:
+      let newGuesses = state.guesses.slice(0)
+      newGuesses.push(action.guessObject)
+      return {
+        ...state,
+        guesses: newGuesses
       }
     default:
       return state

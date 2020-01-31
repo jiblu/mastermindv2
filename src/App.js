@@ -35,8 +35,8 @@ const App = props => {
     <PageDiv>
       <Text align='center' size='large'>Mastermind v.2</Text>
       <Stack justify='center'>
-        <Button id='rules' onClick={()=>toggleRules(!showRules)}>How To Play</Button>
-        <Button id='leaderboard' onClick={()=>toggleLeaderboard(!showLeaderboard)}>Leaderboard</Button>
+        <Button id='rules' onClick={() => toggleRules(!showRules)}>How To Play</Button>
+        <Button id='leaderboard' onClick={() => toggleLeaderboard(!showLeaderboard)}>Leaderboard</Button>
       </Stack>
       <GameContainer />
       <RulesModal />

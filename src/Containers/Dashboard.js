@@ -8,7 +8,9 @@ import TextDisplay from '../Components/TextDisplay'
 import Input from '../Components/Input'
 import Button from '../Components/Button'
 import Guesses from './Guesses'
-import isValidGuess from './isValidGuess'
+import isValidGuess from '../Helpers/isValidGuess'
+import createFeedback from '../Helpers/createFeedback'
+import { saveGuess } from '../Actions/Index'
 
 const MainContainer = styled.div`
   display: flex;
@@ -51,7 +53,18 @@ class Dashboard extends Component {
 
   handleSubmit () {
     let { currentGuess } = this.state
-    console.log(isValidGuess(currentGuess))
+    let { rangeUpperLimit, secretCode } = this.props
+    if (isValidGuess(currentGuess, rangeUpperLimit)) {
+      let feedback = createFeedback(currentGuess, secretCode)
+      this.props.saveGuess({
+        guess: currentGuess,
+        feedback: feedback
+      })
+      
+    } else {
+      // create some notification
+      console.log('not a valid number')
+    }
   }
 
   render () {
@@ -108,4 +121,5 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Dashboard)
+const mapDispatchToProps = { saveGuess }
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
