@@ -8,6 +8,7 @@ import Input from '../Components/Input'
 import Text from '../Components/Text'
 import Button from '../Components/Button'
 import Dropdown from '../Components/Dropdown'
+import { thisExpression } from '@babel/types'
 
 const levels = ['normal', 'nightmare', 'hell']
 
@@ -20,11 +21,13 @@ class Settings extends Component {
   handleChange (id, e) {
     this.setState({
       [id]: e.target.value
-    }, () => this.props.saveSettings(this.state))
+    })
   }
 
   handleSubmit () {
-    this.props.startGame()
+    this.props.saveSettings(this.state)
+      .then(() => this.props.startGame())
+    // this.props.startGame()
   }
 
   render () {

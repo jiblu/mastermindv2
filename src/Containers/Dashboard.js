@@ -28,6 +28,9 @@ const Dashboard = props => {
         </Text>
         <TextDisplay text='Username' value={props.username} />
         <TextDisplay text='Level' value={props.level} />
+        <TextDisplay text='Score' value={props.score} />
+        <TextDisplay text='Guesses Left' value={props.guessesLeft} />
+        <TextDisplay text='Secret Code' value={props.secretCode} />
       </SideContainer>
       <MidContainer>
         some mid content
@@ -49,7 +52,11 @@ const Dashboard = props => {
 const mapStateToProps = state => {
   return {
     username: state.username,
-    level: state.level
+    level: state.level,
+    playing: state.playing,
+    score: state.score,
+    guessesLeft: state.guessesLeft,
+    secretCode: state.secretCode
   }
 }
 

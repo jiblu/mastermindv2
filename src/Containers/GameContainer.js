@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { Colors, Metrics } from '../Themes/index'
 import Settings from './Settings'
@@ -20,13 +21,10 @@ const GameContainer = props => {
   )
 }
 
-export default GameContainer
+const mapStateToProps = state => {
+  return {
+    playing: state.playing
+  }
+}
 
-// const mapStateToProps = state => {
-//   return {
-//     playing: state.playing,
-//     username: state.username
-//   }
-// }
-
-// export default connect(mapStateToProps)(GameContainer)
+export default connect(mapStateToProps)(GameContainer)

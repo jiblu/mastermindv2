@@ -6,7 +6,11 @@ import {
 const initialState = {
   username: 'guest',
   level: 'normal',
-  playing: false
+  playing: false,
+  score: 100,
+  guessesLeft: 10,
+  secretCode: null,
+  rangeUpperLimit: 7
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -15,7 +19,9 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         username: action.settings.username,
-        level: action.settings.level
+        level: action.settings.level,
+        rangeUpperLimit: action.settings.rangeUpperLimit,
+        secretCode: action.settings.secretCode
       }
     case START_GAME:
       return {
