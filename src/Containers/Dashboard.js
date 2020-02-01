@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
+import UIfx from 'uifx'
+import oopsMp3 from '../Assets/oops.wav'
+import wrongMp3 from '../Assets/wrong.mp3'
 import { Colors, Metrics } from '../Themes/index'
 import Stack from '../Components/Stack'
 import Text from '../Components/Text'
@@ -53,6 +56,8 @@ class Dashboard extends Component {
   }
 
   handleSubmit () {
+    const oops = new UIfx(oopsMp3)
+    const wrong = new UIfx(wrongMp3)
     let { currentGuess } = this.state
     let { rangeUpperLimit, secretCode, guessesLeft, score } = this.props
     if (isValidGuess(currentGuess, rangeUpperLimit)) {
@@ -63,6 +68,8 @@ class Dashboard extends Component {
       })
       if (feedback.numPlaces === 4) {
         this.props.winGame()
+      } else {
+        wrong.play()
       }
       if (guessesLeft <= 1 || score <= 10) {
         this.props.loseGame()
@@ -71,6 +78,7 @@ class Dashboard extends Component {
         currentGuess: ''
       })
     } else {
+      oops.play()
       let alertMsg = `Must be a valid 4 digit number. Each digit must be between 0 and ${this.props.rangeUpperLimit}.`
       alert(alertMsg)
     }
