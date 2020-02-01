@@ -42,8 +42,9 @@ ResultPage.js | This component is displayed once the game is over
 - Kept track of scores
 - Created a progress bar based on number of attempts left
 - Integrated a small confetti celebration on winning the game
+- Implemented hint feature where you can buy hints in exchange for guesses/points deduction
 
 ## Features I Would Like To Explore
 - A leaderboard for top scores (would require a database for data persistence)
 - User login (maybe firebase for 3rd party auth)
-- Wheel of fortune style chance - user can forfeit some points or a guess attempt to spin the wheel and maybe get a hint (but there should also be a possibility of landing on something bad.
+
