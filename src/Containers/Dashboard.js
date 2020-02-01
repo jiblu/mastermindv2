@@ -85,6 +85,7 @@ class Dashboard extends Component {
             guessesLeft={this.props.guessesLeft}
             username={this.props.username}
             score={this.props.score}
+            gameStatus={this.props.gameStatus}
           >
             <Guesses guesses={this.props.guesses} />
           </ResultPage>
@@ -98,6 +99,7 @@ class Dashboard extends Component {
             guessesLeft={this.props.guessesLeft}
             username={this.props.username}
             score={this.props.score}
+            gameStatus={this.props.gameStatus}
           >
             <Guesses guesses={this.props.guesses} />
           </ResultPage>
@@ -164,7 +166,7 @@ const mapStateToProps = state => {
     secretCode: state.secretCode,
     rangeUpperLimit: state.rangeUpperLimit,
     guesses: state.guesses,
-    gameStatus: state.gameStatus
+    gameStatus: state.gameStatus,
   }
 }
 

@@ -16,7 +16,8 @@ const initialState = {
   secretCode: null,
   rangeUpperLimit: 7,
   guesses: [],
-  gameStatus: null
+  gameStatus: null,
+  confetti: false
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -49,7 +50,8 @@ const rootReducer = (state = initialState, action) => {
     case WIN_GAME:
       return {
         ...state,
-        gameStatus: 'win'
+        gameStatus: 'win',
+        confetti: true
       }
     case LOSE_GAME:
       return {
