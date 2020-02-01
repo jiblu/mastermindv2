@@ -17,6 +17,7 @@ import createFeedback from '../Helpers/createFeedback'
 import { saveGuess, winGame, loseGame, exitGame } from '../Actions/Index'
 import ProgressBar from '../Components/ProgressBar'
 import ResultPage from './ResultPage'
+import Hint from '../Components/Hint'
 
 const MainContainer = styled.div`
   display: flex;
@@ -40,8 +41,8 @@ const MidContainer = styled.div`
   flex-grow: 4;
   border-radius: 5px;
   background-color: ${Colors.lightGray};
-  padding: 15px 0;
-  margin: 15px 0;
+  padding: 15px 5px;
+  margin: 10px 0;
 `
 
 class Dashboard extends Component {
@@ -88,58 +89,37 @@ class Dashboard extends Component {
   }
 
   render () {
-    switch (this.props.gameStatus) {
-      case 'win':
-        return (
-          <ResultPage
-            result='You Win!'
-            exitGame={this.props.exitGame}
-            secretCode={this.props.secretCode}
-            guessesLeft={this.props.guessesLeft}
-            username={this.props.username}
-            score={this.props.score}
-            gameStatus={this.props.gameStatus}
-          >
-            <Guesses guesses={this.props.guesses} />
-          </ResultPage>
-        )
-      case 'lose':
-        return (
-          <ResultPage
-            result='You Lose!'
-            exitGame={this.props.exitGame}
-            secretCode={this.props.secretCode}
-            guessesLeft={this.props.guessesLeft}
-            username={this.props.username}
-            score={this.props.score}
-            gameStatus={this.props.gameStatus}
-          >
-            <Guesses guesses={this.props.guesses} />
-          </ResultPage>
-        )
-      default: 
-        return (
-          <MainContainer>
-            <SideContainer>
-              <Text
-                size='medium'
-                color='secondary'
-                align='center'
-              >
-                Game Stats
-              </Text>
-              <TextDisplay text='Username' value={this.props.username} />
-              <TextDisplay text='Level' value={this.props.level} />
-              <TextDisplay text='Score' value={this.props.score} />
-              <TextDisplay text='Guesses Left' value={this.props.guessesLeft} />
-              {/* <TextDisplay text='Secret Code' value={this.props.secretCode} /> */}
-            </SideContainer>
+    let resultMessage = this.props.gameStatus === 'win' ? 'You Win!' : this.props.gameStatus === 'lose' ? 'You Lose!' : null
+    if (this.props.gameStatus !== null) {
+      return (
+        <ResultPage
+        result={resultMessage}
+        exitGame={this.props.exitGame}
+        secretCode={this.props.secretCode}
+        guessesLeft={this.props.guessesLeft}
+        username={this.props.username}
+        score={this.props.score}
+        gameStatus={this.props.gameStatus}
+      >
+        <Guesses guesses={this.props.guesses} />
+      </ResultPage>
+      )
+    } else {
+      return (
+        <MainContainer>
+          <SideContainer>
+            <Text size='medium' color='secondary' align='center'>
+              Game Stats
+            </Text>
+            <TextDisplay text='Username' value={this.props.username} />
+            <TextDisplay text='Level' value={this.props.level} />
+            <TextDisplay text='Score' value={this.props.score} />
+            <TextDisplay text='Guesses Left' value={this.props.guessesLeft} />
+            {/* <TextDisplay text='Secret Code' value={this.props.secretCode} /> */}
+          </SideContainer>
+          <Stack vertical>
             <MidContainer>
-              <Text
-                size='smaller'
-                color='secondary'
-                align='center'
-              >
+              <Text size='smaller' color='red' align='center'>
                 (numbers must be between 0 and {this.props.rangeUpperLimit})
               </Text>
               <ProgressBar percentage={100 - (this.props.guessesLeft * 10)} />
@@ -161,18 +141,31 @@ class Dashboard extends Component {
                 <Button onClick={this.handleSubmit.bind(this)}>Submit Guess</Button>
               </Stack>
             </MidContainer>
-            <SideContainer>
-              <Text
-                size='medium'
-                color='secondary'
-                align='center'
-              >
-                Your Guesses
+            <MidContainer>
+              <Text size='medium' color='secondary' align='center' margin='0 0 5px 0'>
+                Hints
               </Text>
-              <Guesses guesses={this.props.guesses}/>
-            </SideContainer>
-          </MainContainer>
-        )
+              <Text size='smaller' color='red' align='center'>
+                (each hint will deduct 3 available guesses)
+              </Text>
+              <Stack justify='space-around'>
+                <Hint />
+                <Hint />
+                <Hint />
+              </Stack>
+              <Button bgcolor={Colors.white} color={Colors.orange} onClick={this.props.exitGame}>
+                Buy Hint
+              </Button>
+            </MidContainer>
+          </Stack>
+          <SideContainer>
+            <Text size='medium' color='secondary' align='center'>
+              Your Guesses
+            </Text>
+            <Guesses guesses={this.props.guesses}/>
+          </SideContainer>
+        </MainContainer>
+      )
     }
   }
 }

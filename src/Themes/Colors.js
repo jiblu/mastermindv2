@@ -10,8 +10,8 @@ const colors = {
   white: '#FFFFFF',
   green: '#B2ECA7',
   yellow: '#FDFDA4',
-  orange: '#FDD3A4',
-  red: '#FDB0A4'
+  orange: '#F6AA6E',
+  red: '#B23326'
 }
 
 export default colors
