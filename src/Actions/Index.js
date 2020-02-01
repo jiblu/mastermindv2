@@ -3,6 +3,7 @@ import axios from 'axios'
 export const SAVE_SETTINGS = 'SAVE_SETTINGS'
 export const START_GAME = 'START_GAME'
 export const SAVE_GUESS = 'SAVE_GUESS'
+export const WIN_GAME = 'WIN_GAME'
 
 export const saveSettings = (settings) => {
   const max = settings.level === 'normal' ? 7 : settings.level === 'nightmare' ? 8 : 9
@@ -27,3 +28,5 @@ export const saveSettings = (settings) => {
 export const startGame = () => ({ type: START_GAME })
 
 export const saveGuess = (guessObject) => ({ type: SAVE_GUESS, guessObject: guessObject })
+
+export const winGame = () => ({ type: WIN_GAME })

@@ -1,7 +1,8 @@
 import {
   SAVE_SETTINGS,
   START_GAME,
-  SAVE_GUESS
+  SAVE_GUESS,
+  WIN_GAME
 } from '../Actions/Index'
 
 const initialState = {
@@ -12,7 +13,8 @@ const initialState = {
   guessesLeft: 10,
   secretCode: null,
   rangeUpperLimit: 7,
-  guesses: []
+  guesses: [],
+  gameStatus: null
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -41,6 +43,11 @@ const rootReducer = (state = initialState, action) => {
         guesses: newGuesses,
         guessesLeft: newGuessesLeft,
         score: newScore
+      }
+    case WIN_GAME:
+      return {
+        ...state,
+        gameStatus: 'win'
       }
     default:
       return state
