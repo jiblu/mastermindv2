@@ -20,6 +20,7 @@ const Rules = props => (
         <li><Text size='smaller'>You start with 100 points</Text></li>
         <li><Text size='smaller'>10 points deducted for each round of incorrect guesses</Text></li>
         <li><Text size='smaller'>You lose if you have 0 points or use up all your guesses - whichever comes first</Text></li>
+        <li><Text size='smaller'>You also have the option to buy hints in exchange for sacrificing 3 guesses / 30 points</Text></li>
       </ul>
     </Stack>
     <Text size='smaller' color='secondary'>*Increase level to increase viable number range</Text>
