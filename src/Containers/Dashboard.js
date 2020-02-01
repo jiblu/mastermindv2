@@ -5,6 +5,7 @@ import UIfx from 'uifx'
 import oopsMp3 from '../Assets/oops.wav'
 import wrongMp3 from '../Assets/wrong.mp3'
 import yayMp3 from '../Assets/yay.wav'
+import awwMp3 from '../Assets/aww.wav'
 import { Colors, Metrics } from '../Themes/index'
 import Stack from '../Components/Stack'
 import Text from '../Components/Text'
@@ -67,6 +68,7 @@ class Dashboard extends Component {
     const oops = new UIfx(oopsMp3)
     const wrong = new UIfx(wrongMp3)
     const yay = new UIfx(yayMp3)
+    const aww = new UIfx(awwMp3)
     let { currentGuess } = this.state
     let { rangeUpperLimit, secretCode, guessesLeft, score } = this.props
     if (isValidGuess(currentGuess, rangeUpperLimit)) {
@@ -82,6 +84,7 @@ class Dashboard extends Component {
         wrong.play()
         if (guessesLeft <= 1 || score <= 10) {
           this.props.loseGame()
+          aww.play()
         }
         this.setState({
           currentGuess: ''
