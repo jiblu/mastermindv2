@@ -14,7 +14,8 @@ import Button from '../Components/Button'
 import Guesses from './Guesses'
 import isValidGuess from '../Helpers/isValidGuess'
 import createFeedback from '../Helpers/createFeedback'
-import { saveGuess, winGame, loseGame, exitGame } from '../Actions/Index'
+import pickRandomHint from '../Helpers/pickRandomHint'
+import { saveGuess, winGame, loseGame, exitGame, updateGuessesScore } from '../Actions/Index'
 import ProgressBar from '../Components/ProgressBar'
 import ResultPage from './ResultPage'
 import Hint from '../Components/Hint'
@@ -48,7 +49,12 @@ const MidContainer = styled.div`
 class Dashboard extends Component {
 
   state = {
-    currentGuess: null
+    currentGuess: null,
+    showHint0: false,
+    showHint1: false,
+    showHint2: false,
+    showHint3: false,
+    hintNotification: null
   }
 
   handleChange (id, e) {
@@ -88,7 +94,21 @@ class Dashboard extends Component {
     }
   }
 
+  handleBuyHint () {
+    let randomHintIndex = pickRandomHint()
+    this.setState({
+      [`showHint${randomHintIndex}`]: true,
+      hintNotification: `Your hint: ${this.props.secretCode[randomHintIndex]} unlocked!`
+    }, () => this.props.updateGuessesScore(this.props.guessesLeft - 3, this.props.score - 30))
+    setTimeout(() => {
+      this.setState({
+        hintNotification: null
+      })
+    }, 1000)
+  }
+
   render () {
+    let buyHintDisabled = this.props.guessesLeft - 3 >= 0 ? false : true
     let resultMessage = this.props.gameStatus === 'win' ? 'You Win!' : this.props.gameStatus === 'lose' ? 'You Lose!' : null
     if (this.props.gameStatus !== null) {
       return (
@@ -105,6 +125,7 @@ class Dashboard extends Component {
       </ResultPage>
       )
     } else {
+      console.log(`props.playingL ${this.props.playing}`)
       return (
         <MainContainer>
           <SideContainer>
@@ -148,12 +169,23 @@ class Dashboard extends Component {
               <Text size='smaller' color='red' align='center'>
                 (each hint will deduct 3 available guesses)
               </Text>
+              <Text size='smaller' color='red' align='center'>
+                (* caution * may buy hint that was already purchased)
+              </Text>
               <Stack justify='space-around'>
-                <Hint />
-                <Hint />
-                <Hint />
+                <Hint hint={this.props.secretCode[0]} show={this.state.showHint0}/>
+                <Hint hint={this.props.secretCode[1]} show={this.state.showHint1}/>
+                <Hint hint={this.props.secretCode[2]} show={this.state.showHint2}/>
+                <Hint hint={this.props.secretCode[3]} show={this.state.showHint3}/>
               </Stack>
-              <Button bgcolor={Colors.white} color={Colors.orange} onClick={this.props.exitGame}>
+              {this.state.hintNotification}
+              <Button
+                bgcolor={buyHintDisabled ? Colors.light : Colors.white}
+                color={Colors.orange}
+                onClick={this.handleBuyHint.bind(this)}
+                disabled={buyHintDisabled}
+                cursor={buyHintDisabled ? 'default' : 'cursor'}
+              >
                 Buy Hint
               </Button>
             </MidContainer>
@@ -184,5 +216,5 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = { saveGuess, winGame, loseGame, exitGame }
+const mapDispatchToProps = { saveGuess, winGame, loseGame, exitGame, updateGuessesScore }
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)

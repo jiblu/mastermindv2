@@ -9,7 +9,7 @@ const Button = styled.button`
   width: ${Metrics.buttonWidth}px;
   margin: 5px;
   padding: 5px;
-  cursor: pointer;
+  cursor: ${props => props.cursor ? props.cursor : 'pointer'};
   &:hover {
     font-size: calc(${Metrics.fontSize.medium}px + 2px)
   } 

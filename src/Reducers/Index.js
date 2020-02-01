@@ -4,7 +4,8 @@ import {
   SAVE_GUESS,
   WIN_GAME,
   LOSE_GAME,
-  EXIT_GAME
+  EXIT_GAME,
+  UPDATE_GUESSES_SCORE
 } from '../Actions/Index'
 
 const initialState = {
@@ -61,6 +62,12 @@ const rootReducer = (state = initialState, action) => {
     case EXIT_GAME:
       return {
         ...initialState
+      }
+    case UPDATE_GUESSES_SCORE:
+      return {
+        ...state,
+        guessesLeft: action.guessesLeft,
+        score: action.score
       }
     default:
       return state

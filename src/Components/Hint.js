@@ -17,7 +17,7 @@ const HintDiv = styled.div`
 const Hint = props => {
   return (
     <HintDiv>
-      {props.hint ? props.hint : <HelpOutline style={{ color: Colors.yellow }} />}
+      {props.show ? props.hint : <HelpOutline style={{ color: Colors.yellow }} />}
     </HintDiv>
   )
 }
