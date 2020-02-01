@@ -80,13 +80,13 @@ class Dashboard extends Component {
         yay.play()
       } else {
         wrong.play()
+        if (guessesLeft <= 1 || score <= 10) {
+          this.props.loseGame()
+        }
+        this.setState({
+          currentGuess: ''
+        })
       }
-      if (guessesLeft <= 1 || score <= 10) {
-        this.props.loseGame()
-      }
-      this.setState({
-        currentGuess: ''
-      })
     } else {
       oops.play()
       let alertMsg = `Must be a valid 4 digit number. Each digit must be between 0 and ${this.props.rangeUpperLimit}.`
@@ -125,7 +125,6 @@ class Dashboard extends Component {
       </ResultPage>
       )
     } else {
-      console.log(`props.playingL ${this.props.playing}`)
       return (
         <MainContainer>
           <SideContainer>
@@ -136,7 +135,7 @@ class Dashboard extends Component {
             <TextDisplay text='Level' value={this.props.level} />
             <TextDisplay text='Score' value={this.props.score} />
             <TextDisplay text='Guesses Left' value={this.props.guessesLeft} />
-            {/* <TextDisplay text='Secret Code' value={this.props.secretCode} /> */}
+            <TextDisplay text='Secret Code' value={this.props.secretCode} />
           </SideContainer>
           <Stack vertical>
             <MidContainer>
