@@ -10,7 +10,7 @@ import Button from '../Components/Button'
 import Guesses from './Guesses'
 import isValidGuess from '../Helpers/isValidGuess'
 import createFeedback from '../Helpers/createFeedback'
-import { saveGuess, winGame, loseGame } from '../Actions/Index'
+import { saveGuess, winGame, loseGame, exitGame } from '../Actions/Index'
 import ProgressBar from '../Components/ProgressBar'
 import ResultPage from './ResultPage'
 
@@ -80,7 +80,7 @@ class Dashboard extends Component {
         return (
           <ResultPage
             result='You Win!'
-            exitGame={this.props.onExitGame}
+            exitGame={this.props.exitGame}
             secretCode={this.props.secretCode}
             guessesLeft={this.props.guessesLeft}
             username={this.props.username}
@@ -93,7 +93,7 @@ class Dashboard extends Component {
         return (
           <ResultPage
             result='You Lose!'
-            exitGame={this.props.onExitGame}
+            exitGame={this.props.exitGame}
             secretCode={this.props.secretCode}
             guessesLeft={this.props.guessesLeft}
             username={this.props.username}
@@ -131,7 +131,7 @@ class Dashboard extends Component {
                 <Button
                   bgcolor={Colors.white}
                   color={Colors.primary}
-                  onClick={this.handleSubmit.bind(this)}
+                  onClick={this.props.exitGame}
                 >
                   Give Up
                 </Button>
@@ -168,5 +168,5 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = { saveGuess, winGame, loseGame }
+const mapDispatchToProps = { saveGuess, winGame, loseGame, exitGame }
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
