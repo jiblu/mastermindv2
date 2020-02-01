@@ -135,7 +135,7 @@ class Dashboard extends Component {
             <TextDisplay text='Level' value={this.props.level} />
             <TextDisplay text='Score' value={this.props.score} />
             <TextDisplay text='Guesses Left' value={this.props.guessesLeft} />
-            <TextDisplay text='Secret Code' value={this.props.secretCode} />
+            {/* <TextDisplay text='Secret Code' value={this.props.secretCode} /> */}
           </SideContainer>
           <Stack vertical>
             <MidContainer>
