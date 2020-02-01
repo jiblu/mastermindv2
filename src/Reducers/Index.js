@@ -58,8 +58,7 @@ const rootReducer = (state = initialState, action) => {
       }
     case EXIT_GAME:
       return {
-        ...state,
-        playing: false
+        ...initialState
       }
     default:
       return state
