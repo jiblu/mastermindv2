@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import UIfx from 'uifx'
 import oopsMp3 from '../Assets/oops.wav'
 import wrongMp3 from '../Assets/wrong.mp3'
+import yayMp3 from '../Assets/yay.wav'
 import { Colors, Metrics } from '../Themes/index'
 import Stack from '../Components/Stack'
 import Text from '../Components/Text'
@@ -58,6 +59,7 @@ class Dashboard extends Component {
   handleSubmit () {
     const oops = new UIfx(oopsMp3)
     const wrong = new UIfx(wrongMp3)
+    const yay = new UIfx(yayMp3)
     let { currentGuess } = this.state
     let { rangeUpperLimit, secretCode, guessesLeft, score } = this.props
     if (isValidGuess(currentGuess, rangeUpperLimit)) {
@@ -68,6 +70,7 @@ class Dashboard extends Component {
       })
       if (feedback.numPlaces === 4) {
         this.props.winGame()
+        yay.play()
       } else {
         wrong.play()
       }
