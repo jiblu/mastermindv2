@@ -10,7 +10,7 @@ import Button from '../Components/Button'
 import Guesses from './Guesses'
 import isValidGuess from '../Helpers/isValidGuess'
 import createFeedback from '../Helpers/createFeedback'
-import { saveGuess, winGame } from '../Actions/Index'
+import { saveGuess, winGame, loseGame } from '../Actions/Index'
 import ProgressBar from '../Components/ProgressBar'
 import ResultPage from './ResultPage'
 
@@ -54,7 +54,7 @@ class Dashboard extends Component {
 
   handleSubmit () {
     let { currentGuess } = this.state
-    let { rangeUpperLimit, secretCode } = this.props
+    let { rangeUpperLimit, secretCode, guessesLeft, score } = this.props
     if (isValidGuess(currentGuess, rangeUpperLimit)) {
       let feedback = createFeedback(currentGuess, secretCode)
       this.props.saveGuess({
@@ -63,6 +63,9 @@ class Dashboard extends Component {
       })
       if (feedback.numPlaces === 4) {
         this.props.winGame()
+      }
+      if (guessesLeft <= 1 || score <= 10) {
+        this.props.loseGame()
       }
       
     } else {
@@ -165,5 +168,5 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = { saveGuess, winGame }
+const mapDispatchToProps = { saveGuess, winGame, loseGame }
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
