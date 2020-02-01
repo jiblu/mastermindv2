@@ -27,7 +27,6 @@ class Settings extends Component {
   handleSubmit () {
     this.props.saveSettings(this.state)
       .then(() => this.props.startGame())
-    // this.props.startGame()
   }
 
   render () {
@@ -70,8 +69,3 @@ const mapStateToProps = state => {
 const mapDispatchToProps = { saveSettings, startGame }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Settings)
-
-/*
-  as fields are updated, they are saved to the state and then passed to the 
-*/
-

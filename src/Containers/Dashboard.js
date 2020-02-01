@@ -67,7 +67,9 @@ class Dashboard extends Component {
       if (guessesLeft <= 1 || score <= 10) {
         this.props.loseGame()
       }
-      
+      this.setState({
+        currentGuess: ''
+      })
     } else {
       let alertMsg = `Must be a valid 4 digit number. Each digit must be betweem 0 and ${this.props.rangeUpperLimit}.`
       alert(alertMsg)
@@ -128,6 +130,7 @@ class Dashboard extends Component {
                 id='currentGuess'
                 placeholder='please enter four digit number'
                 onChange={this.handleChange.bind(this)}
+                value={this.state.currentGuess}
               />
               <Stack justify='center'>
                 <Button
