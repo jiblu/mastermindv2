@@ -19,7 +19,6 @@ const Rules = props => (
       <ul>
         <li><Text size='smaller'>You start with 100 points</Text></li>
         <li><Text size='smaller'>10 points deducted for each round of incorrect guesses</Text></li>
-        <li><Text size='smaller'>Hints cost 10 points for first digit revealed</Text></li>
         <li><Text size='smaller'>You lose if you have 0 points or use up all your guesses - whichever comes first</Text></li>
       </ul>
     </Stack>
