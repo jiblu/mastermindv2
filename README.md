@@ -10,7 +10,7 @@ When I made the decision to work on Version 2, I considered how I could re-organ
 ## Usage
 
 #### On your browser
- - Just visit [here](https://jiblu.github.io/masterm1nd-game/) and play.
+ - Just visit [here](https://jiblu.github.io/mastermindv2) and play.
 #### On your local machine
 - Open your local machine's terminal
 - `git clone https://github.com/jiblu/mastermindv2.git`
