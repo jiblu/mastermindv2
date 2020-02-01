@@ -5,7 +5,7 @@ import Label from './Label'
 
 const InputField = styled.input`
   border-color: ${Colors.secondaryAccent};
-  background-color: ${Colors.light};
+  background-color: ${Colors.white};
   color: ${Colors.secondary};
   border-radius: calc(${Metrics.radiusSmall}px - 2px);
   font-size: ${Metrics.fontSize.smaller}px;

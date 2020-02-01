@@ -11,6 +11,8 @@ import Guesses from './Guesses'
 import isValidGuess from '../Helpers/isValidGuess'
 import createFeedback from '../Helpers/createFeedback'
 import { saveGuess } from '../Actions/Index'
+import Progress from './Progress'
+import ProgressBar from '../Components/ProgressBar'
 
 const MainContainer = styled.div`
   display: flex;
@@ -84,6 +86,7 @@ class Dashboard extends Component {
           <TextDisplay text='Secret Code' value={this.props.secretCode} />
         </SideContainer>
         <MidContainer>
+          <ProgressBar percentage={100 - (this.props.guessesLeft * 10)} />
           <Input
             text='Current Guess'
             id='currentGuess'

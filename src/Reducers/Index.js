@@ -18,6 +18,7 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
   const newGuessesLeft = state.guessesLeft - 1
   const newGuesses = state.guesses.slice(0)
+  const newScore = state.score - 10
 
   switch (action.type) {
     case SAVE_SETTINGS:
@@ -38,7 +39,8 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         guesses: newGuesses,
-        guessesLeft: newGuessesLeft
+        guessesLeft: newGuessesLeft,
+        score: newScore
       }
     default:
       return state
