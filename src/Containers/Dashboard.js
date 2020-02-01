@@ -71,7 +71,7 @@ class Dashboard extends Component {
         currentGuess: ''
       })
     } else {
-      let alertMsg = `Must be a valid 4 digit number. Each digit must be betweem 0 and ${this.props.rangeUpperLimit}.`
+      let alertMsg = `Must be a valid 4 digit number. Each digit must be between 0 and ${this.props.rangeUpperLimit}.`
       alert(alertMsg)
     }
   }
@@ -124,6 +124,13 @@ class Dashboard extends Component {
               <TextDisplay text='Secret Code' value={this.props.secretCode} />
             </SideContainer>
             <MidContainer>
+              <Text
+                size='smaller'
+                color='secondary'
+                align='center'
+              >
+                (numbers must be between 0 and {this.props.rangeUpperLimit})
+              </Text>
               <ProgressBar percentage={100 - (this.props.guessesLeft * 10)} />
               <Input
                 text='Current Guess'
