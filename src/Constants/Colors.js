@@ -5,6 +5,7 @@ const colors = {
   secondaryAccent: '#a9a9a9',
   black: '#000000',
   light: '#E8E8E8',
+  gray: '#BBB8B7',
   lightGray: '#F8F8F8',
   darkGray: '#707070',
   white: '#FFFFFF',

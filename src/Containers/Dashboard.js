@@ -20,6 +20,8 @@ import { saveGuess, winGame, loseGame, exitGame, updateGuessesScore } from '../A
 import ProgressBar from '../Components/ProgressBar'
 import ResultPage from './ResultPage'
 import Hint from '../Components/Hint'
+import Peg from '../Components/Peg'
+import Pegs from '../Components/Pegs'
 
 const MainContainer = styled.div`
   display: flex;
@@ -145,6 +147,8 @@ class Dashboard extends Component {
               <Text size='smaller' color='red' align='center'>
                 (numbers must be between 0 and {this.props.rangeUpperLimit})
               </Text>
+              <div><Peg /></div>
+              <div><Pegs pegs={[1, 2, 3, null]}/></div>
               <ProgressBar percentage={100 - (this.props.guessesLeft * 10)} />
               <Input
                 text='Current Guess'
