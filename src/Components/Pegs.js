@@ -8,7 +8,7 @@ const PegsDiv = styled.div`
 `
 
 const Pegs = props => {
-  let pegColor = (number) => {
+  const pegColor = (number) => {
     return number ? PegColors[number.toString()] : null
   }
   return (

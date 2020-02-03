@@ -12,8 +12,8 @@ const Result = styled.div`
 
 const ResultPage = props => {
   const { width, height } = useWindowSize()
-  const confetti = props.gameStatus === 'win' ?
-    <Confetti width={width} height={height} /> : null
+  const confetti = props.gameStatus === 'win'
+    ? <Confetti width={width} height={height} /> : null
   return (
     <Result>
       <Stack vertical align='center'>

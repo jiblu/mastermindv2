@@ -22,6 +22,7 @@ import ResultPage from './ResultPage'
 import Hint from '../Components/Hint'
 import Peg from '../Components/Peg'
 import Pegs from '../Components/Pegs'
+import PegsInput from '../Components/PegsInput'
 
 const MainContainer = styled.div`
   display: flex;
@@ -149,6 +150,7 @@ class Dashboard extends Component {
               </Text>
               <div><Peg /></div>
               <div><Pegs pegs={[1, 2, 3, null]}/></div>
+              <div><PegsInput /></div>
               <ProgressBar percentage={100 - (this.props.guessesLeft * 10)} />
               <Input
                 text='Current Guess'

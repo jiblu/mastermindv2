@@ -18,7 +18,7 @@ const initialState = {
   rangeUpperLimit: 7,
   guesses: [],
   gameStatus: null,
-  confetti: false,
+  confetti: false
 }
 
 const rootReducer = (state = initialState, action) => {
