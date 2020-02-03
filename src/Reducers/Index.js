@@ -5,7 +5,8 @@ import {
   WIN_GAME,
   LOSE_GAME,
   EXIT_GAME,
-  UPDATE_GUESSES_SCORE
+  UPDATE_GUESSES_SCORE,
+  UPDATE_CURRENT_PEGS
 } from '../Actions/Index'
 
 const initialState = {
@@ -18,7 +19,8 @@ const initialState = {
   rangeUpperLimit: 7,
   guesses: [],
   gameStatus: null,
-  confetti: false
+  confetti: false,
+  currentPegs: [undefined, undefined, undefined, undefined]
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -68,6 +70,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         guessesLeft: action.guessesLeft,
         score: action.score
+      }
+    case UPDATE_CURRENT_PEGS:
+      return {
+        ...state,
+        currentPegs: action.currentPegs
       }
     default:
       return state

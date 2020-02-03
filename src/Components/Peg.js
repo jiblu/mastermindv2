@@ -2,6 +2,15 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { Colors } from '../Constants/index'
 
+const PegContainer = styled.div`
+  width: 25px;
+  height: 25px;
+  ${props => props.selection && css`
+    border-left: 1px solid ${Colors.gray};
+    margin-left: 10px
+  `}
+`
+
 const PegDiv = styled.div`
   display: inline-block;
   width: 20px;
@@ -17,7 +26,10 @@ const PegDiv = styled.div`
 
 const Peg = props => {
   return (
-    <PegDiv color={props.color} edit={props.edit} />
+    <PegContainer selection={props.selection}>
+      <PegDiv color={props.color} edit={props.edit} onClick={() => props.onClick(props.id)} />
+    </PegContainer>
   )
 }
+
 export default Peg

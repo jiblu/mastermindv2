@@ -1,28 +1,46 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { Colors } from '../Constants/index'
+import { Colors, PegColors } from '../Constants/index'
 import getPegColor from '../Helpers/getPegColor'
+import Stack from './Stack'
 import Peg from './Peg'
-
-const PegsDiv = styled.div`
-
-`
 
 class PegsInput extends Component {
   state = {
-    pegValues: [1, undefined, undefined, undefined]
+    selectedPegId: null,
+  }
+
+  handleSelect (key) {
+    console.log(key)
+    this.setState({
+      selectedPegId: key
+    })
   }
 
   render () {
+    let pegColors = Object.values(PegColors).slice(0, this.props.max)
     return (
-      this.state.pegValues.map((pegValue) => {
-        return (
-          <Peg
-            color={getPegColor(pegValue)}
-            edit={true}
-          />
-        )
-      })
+      <Stack>
+        {
+          pegColors.map((color, i) => {
+            return (
+              <Peg
+                color={color}
+                key={i}
+                id={i}
+                edit={true}
+                onClick={this.handleSelect.bind(this)}
+              />
+            )
+          })
+        }
+        <Peg
+          color={pegColors[this.state.selectedPegId]}
+          selection
+          edit={false}
+        />
+      </Stack>
+
     )
   }
 }
