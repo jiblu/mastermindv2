@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { Colors, PegColors } from '../Constants/index'
+import { Colors } from '../Constants/index'
+import getPegColor from '../Helpers/getPegColor'
 import Peg from './Peg'
 
 const PegsDiv = styled.div`
 
 `
-
-const pegColor = (number) => {
-  return number ? PegColors[number.toString()] : null
-}
 
 class PegsInput extends Component {
   state = {
@@ -18,14 +15,14 @@ class PegsInput extends Component {
 
   render () {
     return (
-      <div>
-        {
-          this.state.pegValues.map((pegValue) => {
-            console.log(pegColor(pegValue))
-            return <Peg color={pegColor(pegValue)} edit={true} />
-          })
-        }
-      </div>
+      this.state.pegValues.map((pegValue) => {
+        return (
+          <Peg
+            color={getPegColor(pegValue)}
+            edit={true}
+          />
+        )
+      })
     )
   }
 }
