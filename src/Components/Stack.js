@@ -11,6 +11,9 @@ const Stack = styled.div`
   `};
   ${props => props.align && css`
     align-items: ${props.align}
+  `};
+  ${props => props.margin && css`
+    margin: ${props.margin}
   `}
 `
 

@@ -11,7 +11,6 @@ class PegsInput extends Component {
   }
 
   handleSelect (key) {
-    console.log(key)
     this.setState({
       selectedPegId: key
     })
@@ -20,7 +19,12 @@ class PegsInput extends Component {
   render () {
     let pegColors = Object.values(PegColors).slice(0, this.props.max)
     return (
-      <Stack>
+      <Stack vertical margin='10px'>
+        <Peg
+          color={pegColors[this.state.selectedPegId]}
+          selection
+          edit={false}
+        />
         {
           pegColors.map((color, i) => {
             return (
@@ -34,13 +38,7 @@ class PegsInput extends Component {
             )
           })
         }
-        <Peg
-          color={pegColors[this.state.selectedPegId]}
-          selection
-          edit={false}
-        />
       </Stack>
-
     )
   }
 }

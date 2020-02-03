@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { Colors, PegColors } from '../Constants/index'
-import Peg from './Peg'
+import Stack from './Stack'
 import PegsInput from './PegsInput'
 
 const InputsDiv = styled.div`
@@ -10,12 +9,12 @@ const InputsDiv = styled.div`
 
 const PegsInputs = props => {
   return (
-    <div>
+    <Stack>
       <PegsInput max={props.max} />
       <PegsInput max={props.max} />
       <PegsInput max={props.max} />
       <PegsInput max={props.max} /> 
-    </div>
+    </Stack>
   )
 }
 
