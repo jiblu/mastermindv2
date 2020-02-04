@@ -7,7 +7,6 @@ export const WIN_GAME = 'WIN_GAME'
 export const LOSE_GAME = 'LOSE_GAME'
 export const EXIT_GAME = 'EDIT_GAME'
 export const UPDATE_GUESSES_SCORE = 'UPDATE_GUESSES_SCORE'
-export const UPDATE_CURRENT_PEGS = 'UPDATE_CURRENT_PEGS'
 
 export const saveSettings = (settings) => {
   const max = settings.level === 'normal' ? 7 : settings.level === 'nightmare' ? 8 : 9
@@ -40,5 +39,3 @@ export const loseGame = () => ({ type: LOSE_GAME })
 export const exitGame = () => ({ type: EXIT_GAME })
 
 export const updateGuessesScore = (guessesLeft, score) => ({ type: UPDATE_GUESSES_SCORE, guessesLeft: guessesLeft, score: score })
-
-export const updateCurrentPegs = (currentPegs) => ({ type: UPDATE_CURRENT_PEGS, currentPegs: currentPegs })
