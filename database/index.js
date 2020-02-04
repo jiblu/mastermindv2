@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/3001', {
+mongoose.connect('mongodb://localhost/mastermind', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
@@ -12,7 +12,7 @@ db.once('open', function() {
 })
 
 //schema
-const userSchema = new mongoose.Schema({
+const gameuserSchema = new mongoose.Schema({
   username: String,
   email: String,
   password: String,
@@ -22,6 +22,6 @@ const userSchema = new mongoose.Schema({
   }]
 })
 
-const User = mongoose.model('users', userSchema)
+const GameUsers = mongoose.model('gameusers', gameuserSchema)
 
-module.exports = User
+module.exports = GameUsers
