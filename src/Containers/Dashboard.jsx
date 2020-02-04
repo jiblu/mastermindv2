@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import UIfx from 'uifx'
@@ -20,6 +21,7 @@ import { saveGuess, winGame, loseGame, exitGame, updateGuessesScore } from '../A
 import ProgressBar from '../Components/ProgressBar.jsx'
 import ResultPage from './ResultPage.jsx'
 import Hint from '../Components/Hint.jsx'
+import Axios from 'axios'
 
 const MainContainer = styled.div`
   display: flex;
@@ -61,6 +63,14 @@ class Dashboard extends Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleBuyHint = this.handleBuyHint.bind(this)
+  }
+
+  componentDidMount () {
+    axios
+      .get('/api/users')
+      .then(response => {
+        console.log(JSON.stringify(response.data))
+      })
   }
 
   handleChange (id, e) {

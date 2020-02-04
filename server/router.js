@@ -6,4 +6,9 @@ router
   .get(controller.getAllUsers)
   .post(controller.addUser)
 
+router
+  .route('/user')
+  .get(controller.getUser)
+  .put(controller.updateScores)
+
 module.exports = router
