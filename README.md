@@ -19,6 +19,7 @@ When I made the decision to work on Version 2, I considered how I could re-organ
 - Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## File Descriptions (Main container files)
+#### container files are found in 'src > containers'
 #### Smaller files / sub component files are not listed
 ---
 File|Task
