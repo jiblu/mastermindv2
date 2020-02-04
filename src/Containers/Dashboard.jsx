@@ -48,8 +48,8 @@ const MidContainer = styled.div`
 `
 
 class Dashboard extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
     this.state = {
       currentGuess: null,
       showHint0: false,
@@ -58,20 +58,10 @@ class Dashboard extends Component {
       showHint3: false,
       hintNotification: null
     }
-  
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleBuyHint = this.handleBuyHint.bind(this)
   }
-
-  // state = {
-  //   currentGuess: null,
-  //   showHint0: false,
-  //   showHint1: false,
-  //   showHint2: false,
-  //   showHint3: false,
-  //   hintNotification: null
-  // }
 
   handleChange (id, e) {
     this.setState({
@@ -84,10 +74,10 @@ class Dashboard extends Component {
     const wrong = new UIfx(wrongMp3)
     const yay = new UIfx(yayMp3)
     const aww = new UIfx(awwMp3)
-    let { currentGuess } = this.state
-    let { rangeUpperLimit, secretCode, guessesLeft, score } = this.props
+    const { currentGuess } = this.state
+    const { rangeUpperLimit, secretCode, guessesLeft, score } = this.props
     if (isValidGuess(currentGuess, rangeUpperLimit)) {
-      let feedback = createFeedback(currentGuess, secretCode)
+      const feedback = createFeedback(currentGuess, secretCode)
       this.props.saveGuess({
         guess: currentGuess,
         feedback: feedback
@@ -107,13 +97,13 @@ class Dashboard extends Component {
       }
     } else {
       oops.play()
-      let alertMsg = `Must be a valid 4 digit number. Each digit must be between 0 and ${this.props.rangeUpperLimit}.`
+      const alertMsg = `Must be a valid 4 digit number. Each digit must be between 0 and ${this.props.rangeUpperLimit}.`
       alert(alertMsg)
     }
   }
 
   handleBuyHint () {
-    let randomHintIndex = pickRandomHint()
+    const randomHintIndex = pickRandomHint()
     this.setState({
       [`showHint${randomHintIndex}`]: true,
       hintNotification: `Your hint: ${this.props.secretCode[randomHintIndex]} unlocked!`
@@ -126,8 +116,8 @@ class Dashboard extends Component {
   }
 
   render () {
-    let buyHintDisabled = this.props.guessesLeft - 3 >= 0 ? false : true
-    let resultMessage = this.props.gameStatus === 'win' ? 'You Win!' : this.props.gameStatus === 'lose' ? 'You Lose!' : null
+    const buyHintDisabled = this.props.guessesLeft - 3 >= 0 ? false : true
+    const resultMessage = this.props.gameStatus === 'win' ? 'You Win!' : this.props.gameStatus === 'lose' ? 'You Lose!' : null
     if (this.props.gameStatus !== null) {
       return (
         <ResultPage
@@ -229,7 +219,7 @@ const mapStateToProps = state => {
     secretCode: state.secretCode,
     rangeUpperLimit: state.rangeUpperLimit,
     guesses: state.guesses,
-    gameStatus: state.gameStatus,
+    gameStatus: state.gameStatus
   }
 }
 
