@@ -43,6 +43,7 @@ ResultPage.js | This component is displayed once the game is over
 - Created a progress bar based on number of attempts left
 - Integrated a small confetti celebration on winning the game
 - Implemented hint feature where you can buy hints in exchange for guesses/points deduction
+- Responsive layout using flexbox to support multiple screen sizes
 
 ## Features I Would Like To Explore
 - A leaderboard for top scores (would require a database for data persistence)
