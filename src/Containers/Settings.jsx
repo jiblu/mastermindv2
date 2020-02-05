@@ -37,7 +37,7 @@ class Settings extends Component {
         <Stack align='center'>
           <Text size='medium' color='secondary'>Game Settings</Text>
         </Stack>
-        <div style={{ margin: '10px 20px' }}>
+        <div style={{ margin: '10px' }}>
           <Input
             text='username'
             id='username'

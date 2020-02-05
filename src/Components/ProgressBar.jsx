@@ -7,11 +7,11 @@ const Tracker = styled.div`
   height: 20px;
   margin: 15px auto;
   border-radius: 10px;
-  background-color: ${Colors.light};
+  background-color: ${Colors.white};
 `
 const ProgressInTracker = styled.div`
   width: ${props => props.percentage}%;
-  background-color: ${Colors.green};
+  background-color: ${Colors.lightSteelBlue};
   height: 20px;
   border-radius: 10px;
 `

@@ -44,7 +44,7 @@ const MidContainer = styled.div`
   align-items: center;
   flex-grow: 4;
   border-radius: 5px;
-  background-color: ${Colors.lightGray};
+  background-color: ${Colors.iceBlue};
   padding: 15px 5px;
   margin: 10px 0;
 `
@@ -80,24 +80,23 @@ class Dashboard extends Component {
   }
 
   handleSubmit () {
-    const oops = new UIfx(oopsMp3)
-    const wrong = new UIfx(wrongMp3)
-    const yay = new UIfx(yayMp3)
-    const aww = new UIfx(awwMp3)
     const { currentGuess } = this.state
     const { rangeUpperLimit, secretCode, guessesLeft, score } = this.props
     if (isValidGuess(currentGuess, rangeUpperLimit)) {
       const feedback = createFeedback(currentGuess, secretCode)
-      this.props.saveGuess({
-        guess: currentGuess,
-        feedback: feedback
-      })
       if (feedback.numPlaces === 4) {
+        const yay = new UIfx(yayMp3)
         this.props.winGame()
         yay.play()
       } else {
+        const wrong = new UIfx(wrongMp3)
         wrong.play()
+        this.props.saveGuess({
+          guess: currentGuess,
+          feedback: feedback
+        })
         if (guessesLeft <= 1 || score <= 10) {
+          const aww = new UIfx(awwMp3)
           this.props.loseGame()
           aww.play()
         }
@@ -106,6 +105,7 @@ class Dashboard extends Component {
         })
       }
     } else {
+      const oops = new UIfx(oopsMp3)
       oops.play()
       const alertMsg = `Must be a valid 4 digit number. Each digit must be between 0 and ${this.props.rangeUpperLimit}.`
       alert(alertMsg)
@@ -157,7 +157,7 @@ class Dashboard extends Component {
           </SideContainer>
           <Stack vertical>
             <MidContainer>
-              <Text size='smaller' color='red' align='center'>
+              <Text size='smaller' color='linkedinblue' align='center'>
                 (numbers must be between 0 and {this.props.rangeUpperLimit})
               </Text>
               <ProgressBar percentage={100 - (this.props.guessesLeft * 10)} />
@@ -171,7 +171,7 @@ class Dashboard extends Component {
               <Stack justify='center'>
                 <Button
                   bgcolor={Colors.white}
-                  color={Colors.primary}
+                  color={Colors.linkedinblue}
                   onClick={this.props.exitGame}
                 >
                   Give Up
@@ -183,10 +183,10 @@ class Dashboard extends Component {
               <Text size='medium' color='secondary' align='center' margin='0 0 5px 0'>
                 Hints
               </Text>
-              <Text size='smaller' color='red' align='center'>
+              <Text size='smaller' color='linkedinblue' align='center'>
                 (each hint will deduct 3 available guesses)
               </Text>
-              <Text size='smaller' color='red' align='center'>
+              <Text size='smaller' color='linkedinblue' align='center'>
                 (* caution * may buy hint that was already purchased)
               </Text>
               <Stack justify='space-around'>
@@ -198,7 +198,7 @@ class Dashboard extends Component {
               {this.state.hintNotification}
               <Button
                 bgcolor={buyHintDisabled ? Colors.light : Colors.white}
-                color={Colors.orange}
+                color={Colors.linkedinblue}
                 onClick={this.handleBuyHint.bind(this)}
                 disabled={buyHintDisabled}
                 cursor={buyHintDisabled ? 'default' : 'cursor'}

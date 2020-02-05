@@ -44,8 +44,9 @@ ResultPage.js | This component is displayed once the game is over
 - Created a progress bar based on number of attempts left
 - Integrated a small confetti celebration on winning the game
 - Implemented hint feature where you can buy hints in exchange for guesses/points deduction
+- Responsive layout using flexbox to support multiple screen sizes
 
 ## Features I Would Like To Explore
 - A leaderboard for top scores (would require a database for data persistence)
 - User login (maybe firebase for 3rd party auth)
-
+- Based on feedback from players, the game is too hard and almost uncrackable. There needs to be some fun way to keep players engaged and believing they could win without giving up midway.

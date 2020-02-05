@@ -2,7 +2,8 @@ const metrics = {
   buttonWidth: 140,
   radiusSmall: 5,
   fontSize: {
-    smaller: 10,
+    smallest: 10,
+    smaller: 12,
     small: 14,
     medium: 16,
     large: 30
