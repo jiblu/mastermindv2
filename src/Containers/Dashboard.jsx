@@ -80,24 +80,23 @@ class Dashboard extends Component {
   }
 
   handleSubmit () {
-    const oops = new UIfx(oopsMp3)
-    const wrong = new UIfx(wrongMp3)
-    const yay = new UIfx(yayMp3)
-    const aww = new UIfx(awwMp3)
     const { currentGuess } = this.state
     const { rangeUpperLimit, secretCode, guessesLeft, score } = this.props
     if (isValidGuess(currentGuess, rangeUpperLimit)) {
       const feedback = createFeedback(currentGuess, secretCode)
       if (feedback.numPlaces === 4) {
+        const yay = new UIfx(yayMp3)
         this.props.winGame()
         yay.play()
       } else {
+        const wrong = new UIfx(wrongMp3)
+        wrong.play()
         this.props.saveGuess({
           guess: currentGuess,
           feedback: feedback
         })
-        wrong.play()
         if (guessesLeft <= 1 || score <= 10) {
+          const aww = new UIfx(awwMp3)
           this.props.loseGame()
           aww.play()
         }
@@ -106,6 +105,7 @@ class Dashboard extends Component {
         })
       }
     } else {
+      const oops = new UIfx(oopsMp3)
       oops.play()
       const alertMsg = `Must be a valid 4 digit number. Each digit must be between 0 and ${this.props.rangeUpperLimit}.`
       alert(alertMsg)
