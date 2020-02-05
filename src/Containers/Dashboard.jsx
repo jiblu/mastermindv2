@@ -88,14 +88,14 @@ class Dashboard extends Component {
     const { rangeUpperLimit, secretCode, guessesLeft, score } = this.props
     if (isValidGuess(currentGuess, rangeUpperLimit)) {
       const feedback = createFeedback(currentGuess, secretCode)
-      this.props.saveGuess({
-        guess: currentGuess,
-        feedback: feedback
-      })
       if (feedback.numPlaces === 4) {
         this.props.winGame()
         yay.play()
       } else {
+        this.props.saveGuess({
+          guess: currentGuess,
+          feedback: feedback
+        })
         wrong.play()
         if (guessesLeft <= 1 || score <= 10) {
           this.props.loseGame()

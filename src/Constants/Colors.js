@@ -12,7 +12,8 @@ const colors = {
   green: '#B2ECA7',
   yellow: '#FDFDA4',
   orange: '#F6AA6E',
-  red: '#B23326'
+  red: '#B23326',
+  linkedinblue: '#0072B1'
 }
 
 export default colors

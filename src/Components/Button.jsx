@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Colors, Metrics } from '../Constants/index.js'
 
 const Button = styled.button`
-  background-color: ${props => props.bgcolor ? props.bgcolor : Colors.primary};
+  background-color: ${props => props.bgcolor ? props.bgcolor : Colors.linkedinblue};
   color: ${props => props.color ? props.color : Colors.primaryAccent};
   border-radius: ${Metrics.radiusSmall}px;
   font-size: ${Metrics.fontSize.small}px;

@@ -34,7 +34,7 @@ const App = props => {
 
   return (
     <PageDiv>
-      <Text align='center' size='large'>Mastermind v.2</Text>
+      <Text align='center' size='large' color='linkedinblue'>Mastermind v.2</Text>
       <Stack justify='center'>
         <Button color={Colors.darkGray} bgcolor={Colors.light} id='rules' onClick={() => toggleRules(!showRules)}>How To Play</Button>
         <Button color={Colors.darkGray} bgcolor={Colors.light} id='leaderboard' onClick={() => toggleLeaderboard(!showLeaderboard)}>Leaderboard</Button>
