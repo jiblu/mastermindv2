@@ -44,7 +44,7 @@ const MidContainer = styled.div`
   align-items: center;
   flex-grow: 4;
   border-radius: 5px;
-  background-color: ${Colors.lightGray};
+  background-color: ${Colors.iceBlue};
   padding: 15px 5px;
   margin: 10px 0;
 `
@@ -157,7 +157,7 @@ class Dashboard extends Component {
           </SideContainer>
           <Stack vertical>
             <MidContainer>
-              <Text size='smaller' color='red' align='center'>
+              <Text size='smaller' color='linkedinblue' align='center'>
                 (numbers must be between 0 and {this.props.rangeUpperLimit})
               </Text>
               <ProgressBar percentage={100 - (this.props.guessesLeft * 10)} />
@@ -171,7 +171,7 @@ class Dashboard extends Component {
               <Stack justify='center'>
                 <Button
                   bgcolor={Colors.white}
-                  color={Colors.primary}
+                  color={Colors.linkedinblue}
                   onClick={this.props.exitGame}
                 >
                   Give Up
@@ -183,10 +183,10 @@ class Dashboard extends Component {
               <Text size='medium' color='secondary' align='center' margin='0 0 5px 0'>
                 Hints
               </Text>
-              <Text size='smaller' color='red' align='center'>
+              <Text size='smaller' color='linkedinblue' align='center'>
                 (each hint will deduct 3 available guesses)
               </Text>
-              <Text size='smaller' color='red' align='center'>
+              <Text size='smaller' color='linkedinblue' align='center'>
                 (* caution * may buy hint that was already purchased)
               </Text>
               <Stack justify='space-around'>
@@ -198,7 +198,7 @@ class Dashboard extends Component {
               {this.state.hintNotification}
               <Button
                 bgcolor={buyHintDisabled ? Colors.light : Colors.white}
-                color={Colors.orange}
+                color={Colors.linkedinblue}
                 onClick={this.handleBuyHint.bind(this)}
                 disabled={buyHintDisabled}
                 cursor={buyHintDisabled ? 'default' : 'cursor'}

@@ -4,7 +4,7 @@ import { Colors } from '../Constants/index.js'
 import { HelpOutline } from '@material-ui/icons'
 
 const HintDiv = styled.div`
-  background-color: ${Colors.orange};
+  background-color: ${Colors.lightSteelBlue};
   border-radius: 5px;
   width: 30px;
   height: 30px;
@@ -17,7 +17,7 @@ const HintDiv = styled.div`
 const Hint = props => {
   return (
     <HintDiv>
-      {props.show ? props.hint : <HelpOutline style={{ color: Colors.yellow }} />}
+      {props.show ? props.hint : <HelpOutline style={{ color: Colors.white }} />}
     </HintDiv>
   )
 }
