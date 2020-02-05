@@ -11,7 +11,7 @@ const Tracker = styled.div`
 `
 const ProgressInTracker = styled.div`
   width: ${props => props.percentage}%;
-  background-color: ${Colors.green};
+  background-color: ${Colors.linkedinblue};
   height: 20px;
   border-radius: 10px;
 `
