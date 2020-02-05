@@ -129,7 +129,7 @@ class Dashboard extends Component {
   }
 
   render () {
-    const buyHintDisabled = this.props.guessesLeft - 3 >= 0 ? false : true
+    const buyHintDisabled = !(this.props.guessesLeft - 3 >= 0)
     const resultMessage = this.props.gameStatus === 'win' ? 'You Win!' : this.props.gameStatus === 'lose' ? 'You Lose!' : null
     if (this.props.gameStatus !== null) {
       return (
@@ -156,7 +156,7 @@ class Dashboard extends Component {
             <TextDisplay text='Level' value={this.props.level} />
             <TextDisplay text='Score' value={this.props.score} />
             <TextDisplay text='Guesses Left' value={this.props.guessesLeft} />
-            <TextDisplay text='Secret Code' value={this.props.secretCode} />
+            {/* <TextDisplay text='Secret Code' value={this.props.secretCode} /> */}
           </SideContainer>
           <Stack vertical>
             <MidContainer>
@@ -193,10 +193,10 @@ class Dashboard extends Component {
                 (* caution * may buy hint that was already purchased)
               </Text>
               <Stack justify='space-around'>
-                <Hint hint={this.props.secretCode[0]} show={this.state.showHint0}/>
-                <Hint hint={this.props.secretCode[1]} show={this.state.showHint1}/>
-                <Hint hint={this.props.secretCode[2]} show={this.state.showHint2}/>
-                <Hint hint={this.props.secretCode[3]} show={this.state.showHint3}/>
+                <Hint hint={this.props.secretCode[0]} show={this.state.showHint0} />
+                <Hint hint={this.props.secretCode[1]} show={this.state.showHint1} />
+                <Hint hint={this.props.secretCode[2]} show={this.state.showHint2} />
+                <Hint hint={this.props.secretCode[3]} show={this.state.showHint3} />
               </Stack>
               {this.state.hintNotification}
               <Button
@@ -214,7 +214,7 @@ class Dashboard extends Component {
             <Text size='medium' color='secondary' align='center'>
               Your Guesses
             </Text>
-            <Guesses guesses={this.props.guesses}/>
+            <Guesses guesses={this.props.guesses} />
           </SideContainer>
         </MainContainer>
       )

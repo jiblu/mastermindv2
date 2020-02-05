@@ -6,12 +6,12 @@ mongoose.connect('mongodb://localhost/mastermind', {
 
 var db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error:'))
-db.once('open', function() {
-  //we're connected
+db.once('open', function () {
+  // we're connected
   console.log('connected to mongoose')
 })
 
-//schema
+// schema
 const gameuserSchema = new mongoose.Schema({
   username: String,
   email: String,
