@@ -6,7 +6,7 @@ import Stack from './Stack.jsx'
 
 const Text = styled.div`
   border-color: ${Colors.secondaryAccent};
-  background-color: ${Colors.light};
+  background-color: ${Colors.darkIceBlue};
   color: ${Colors.secondary};
   border-radius: calc(${Metrics.radiusSmall}px - 2px);
   font-size: ${Metrics.fontSize.smaller}px;
