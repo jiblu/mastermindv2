@@ -22,7 +22,6 @@ import { saveGuess, winGame, loseGame, exitGame, updateGuessesScore } from '../A
 import ProgressBar from '../Components/ProgressBar.jsx'
 import ResultPage from './ResultPage.jsx'
 import Hint from '../Components/Hint.jsx'
-import Axios from 'axios'
 
 const MainContainer = styled.div`
   display: flex;
@@ -66,14 +65,6 @@ class Dashboard extends Component {
     this.handleBuyHint = this.handleBuyHint.bind(this)
   }
 
-  componentDidMount () {
-    axios
-      .get('/api/users')
-      .then(response => {
-        console.log(JSON.stringify(response.data))
-      })
-  }
-
   handleChange (id, e) {
     this.setState({
       [id]: e.target.value
@@ -82,40 +73,50 @@ class Dashboard extends Component {
 
   handleSubmit () {
     const { currentGuess } = this.state
-    const { rangeUpperLimit, secretCode, guessesLeft, score } = this.props
+    const { rangeUpperLimit, secretCode, guessesLeft, score, allowSound } = this.props
     if (isValidGuess(currentGuess, rangeUpperLimit)) {
       const feedback = createFeedback(currentGuess, secretCode)
       if (feedback.numPlaces === 4) {
-        const yay = new UIfx(yayMp3)
+        if (allowSound) {
+          const yay = new UIfx(yayMp3)
+          yay.play()
+        }
         this.props.winGame()
-        yay.play()
       } else {
-        const wrong = new UIfx(wrongMp3)
-        wrong.play()
+        if (allowSound) {
+          const wrong = new UIfx(wrongMp3)
+          wrong.play()
+        }
         this.props.saveGuess({
           guess: currentGuess,
           feedback: feedback
         })
         if (guessesLeft <= 1 || score <= 10) {
-          const aww = new UIfx(awwMp3)
+          if (allowSound) {
+            const aww = new UIfx(awwMp3)
+            aww.play()
+          }
           this.props.loseGame()
-          aww.play()
         }
         this.setState({
           currentGuess: ''
         })
       }
     } else {
-      const oops = new UIfx(oopsMp3)
-      oops.play()
+      if (allowSound) {
+        const oops = new UIfx(oopsMp3)
+        oops.play()
+      }
       const alertMsg = `Must be a valid 4 digit number. Each digit must be between 0 and ${this.props.rangeUpperLimit}.`
       alert(alertMsg)
     }
   }
 
   handleBuyHint () {
-    const ding = new UIfx(dingMp3)
-    ding.play()
+    if (this.props.allowSound) {
+      const ding = new UIfx(dingMp3)
+      ding.play()
+    }
     const randomHintIndex = pickRandomHint()
     this.setState({
       [`showHint${randomHintIndex}`]: true,
@@ -156,6 +157,7 @@ class Dashboard extends Component {
             <TextDisplay text='Level' value={this.props.level} />
             <TextDisplay text='Score' value={this.props.score} />
             <TextDisplay text='Guesses Left' value={this.props.guessesLeft} />
+            {`allowSound: ${this.props.allowSound}`}
             {/* <TextDisplay text='Secret Code' value={this.props.secretCode} /> */}
           </SideContainer>
           <Stack vertical>
@@ -232,7 +234,8 @@ const mapStateToProps = state => {
     secretCode: state.secretCode,
     rangeUpperLimit: state.rangeUpperLimit,
     guesses: state.guesses,
-    gameStatus: state.gameStatus
+    gameStatus: state.gameStatus,
+    allowSound: state.allowSound
   }
 }
 

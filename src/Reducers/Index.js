@@ -5,7 +5,8 @@ import {
   WIN_GAME,
   LOSE_GAME,
   EXIT_GAME,
-  UPDATE_GUESSES_SCORE
+  UPDATE_GUESSES_SCORE,
+  TOGGLE_SOUND
 } from '../Actions/Index'
 
 const initialState = {
@@ -18,14 +19,15 @@ const initialState = {
   rangeUpperLimit: 7,
   guesses: [],
   gameStatus: null,
-  confetti: false
+  confetti: false,
+  allowSound: true
 }
 
 const rootReducer = (state = initialState, action) => {
   const newGuessesLeft = state.guessesLeft - 1
   const newGuesses = state.guesses.slice(0)
   const newScore = state.score - 10
-
+  const newSound = !state.allowSound
   switch (action.type) {
     case SAVE_SETTINGS:
       return {
@@ -68,6 +70,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         guessesLeft: action.guessesLeft,
         score: action.score
+      }
+    case TOGGLE_SOUND:
+      return {
+        ...state,
+        allowSound: newSound
       }
     default:
       return state

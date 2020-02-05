@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { saveSettings, startGame } from '../Actions/Index.js'
+import { saveSettings, startGame, toggleSound } from '../Actions/Index.js'
 import Stack from '../Components/Stack.jsx'
 import Input from '../Components/Input.jsx'
 import Text from '../Components/Text.jsx'
 import Button from '../Components/Button.jsx'
 import Dropdown from '../Components/Dropdown.jsx'
+import Toggle from '../Components/Toggle.jsx'
 
 const levels = ['normal', 'nightmare', 'hell']
 
@@ -50,6 +51,10 @@ class Settings extends Component {
             onChange={this.handleChange.bind(this)}
             list={levels}
           />
+          <Toggle
+            text='sound'
+            onClick={this.props.toggleSound}
+          />
         </div>
         <Button
           onClick={this.handleSubmit.bind(this)}
@@ -68,6 +73,6 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = { saveSettings, startGame }
+const mapDispatchToProps = { saveSettings, startGame, toggleSound }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Settings)
