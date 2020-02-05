@@ -5,7 +5,7 @@ import { Colors } from '../Constants/index.js'
 const LabelStyle = styled.label`
   color: ${Colors.black};
   display: inline-block;
-  width: 85px;
+  width: 95px;
 `
 
 const Label = props => {
