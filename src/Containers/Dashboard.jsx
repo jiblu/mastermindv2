@@ -3,6 +3,7 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import UIfx from 'uifx'
+import dingMp3 from '../Assets/ding.wav'
 import oopsMp3 from '../Assets/oops.wav'
 import wrongMp3 from '../Assets/wrong.mp3'
 import yayMp3 from '../Assets/yay.wav'
@@ -113,6 +114,8 @@ class Dashboard extends Component {
   }
 
   handleBuyHint () {
+    const ding = new UIfx(dingMp3)
+    ding.play()
     const randomHintIndex = pickRandomHint()
     this.setState({
       [`showHint${randomHintIndex}`]: true,
