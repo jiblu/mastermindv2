@@ -77,25 +77,16 @@ class Dashboard extends Component {
     if (isValidGuess(currentGuess, rangeUpperLimit)) {
       const feedback = createFeedback(currentGuess, secretCode)
       if (feedback.numPlaces === 4) {
-        if (allowSound) {
-          const yay = new UIfx(yayMp3)
-          yay.play()
-        }
+        if (allowSound) { new UIfx(yayMp3).play() }
         this.props.winGame()
       } else {
-        if (allowSound) {
-          const wrong = new UIfx(wrongMp3)
-          wrong.play()
-        }
+        if (allowSound) { new UIfx(wrongMp3).play() }
         this.props.saveGuess({
           guess: currentGuess,
           feedback: feedback
         })
         if (guessesLeft <= 1 || score <= 10) {
-          if (allowSound) {
-            const aww = new UIfx(awwMp3)
-            aww.play()
-          }
+          if (allowSound) { new UIfx(awwMp3).play() }
           this.props.loseGame()
         }
         this.setState({
@@ -103,20 +94,14 @@ class Dashboard extends Component {
         })
       }
     } else {
-      if (allowSound) {
-        const oops = new UIfx(oopsMp3)
-        oops.play()
-      }
+      if (allowSound) { new UIfx(oopsMp3).play() }
       const alertMsg = `Must be a valid 4 digit number. Each digit must be between 0 and ${this.props.rangeUpperLimit}.`
       alert(alertMsg)
     }
   }
 
   handleBuyHint () {
-    if (this.props.allowSound) {
-      const ding = new UIfx(dingMp3)
-      ding.play()
-    }
+    if (this.props.allowSound) { new UIfx(dingMp3).play() }
     const randomHintIndex = pickRandomHint()
     this.setState({
       [`showHint${randomHintIndex}`]: true,
@@ -157,7 +142,6 @@ class Dashboard extends Component {
             <TextDisplay text='Level' value={this.props.level} />
             <TextDisplay text='Score' value={this.props.score} />
             <TextDisplay text='Guesses Left' value={this.props.guessesLeft} />
-            {`allowSound: ${this.props.allowSound}`}
             {/* <TextDisplay text='Secret Code' value={this.props.secretCode} /> */}
           </SideContainer>
           <Stack vertical>
