@@ -1,20 +1,21 @@
 {
   "files": {
     "main.css": "/mastermindv2/static/css/main.129e750d.chunk.css",
-    "main.js": "/mastermindv2/static/js/main.f1911127.chunk.js",
-    "main.js.map": "/mastermindv2/static/js/main.f1911127.chunk.js.map",
+    "main.js": "/mastermindv2/static/js/main.1375d370.chunk.js",
+    "main.js.map": "/mastermindv2/static/js/main.1375d370.chunk.js.map",
     "runtime-main.js": "/mastermindv2/static/js/runtime-main.ffcaf099.js",
     "runtime-main.js.map": "/mastermindv2/static/js/runtime-main.ffcaf099.js.map",
     "static/css/2.4364cc03.chunk.css": "/mastermindv2/static/css/2.4364cc03.chunk.css",
-    "static/js/2.04b0b70e.chunk.js": "/mastermindv2/static/js/2.04b0b70e.chunk.js",
-    "static/js/2.04b0b70e.chunk.js.map": "/mastermindv2/static/js/2.04b0b70e.chunk.js.map",
+    "static/js/2.3f6f5c58.chunk.js": "/mastermindv2/static/js/2.3f6f5c58.chunk.js",
+    "static/js/2.3f6f5c58.chunk.js.map": "/mastermindv2/static/js/2.3f6f5c58.chunk.js.map",
     "index.html": "/mastermindv2/index.html",
-    "precache-manifest.9a66288641ad5e06488d3da980a36129.js": "/mastermindv2/precache-manifest.9a66288641ad5e06488d3da980a36129.js",
+    "precache-manifest.b64c451cc725d99ce1a8c8e0401b742d.js": "/mastermindv2/precache-manifest.b64c451cc725d99ce1a8c8e0401b742d.js",
     "service-worker.js": "/mastermindv2/service-worker.js",
     "static/css/2.4364cc03.chunk.css.map": "/mastermindv2/static/css/2.4364cc03.chunk.css.map",
     "static/css/main.129e750d.chunk.css.map": "/mastermindv2/static/css/main.129e750d.chunk.css.map",
-    "static/js/2.04b0b70e.chunk.js.LICENSE": "/mastermindv2/static/js/2.04b0b70e.chunk.js.LICENSE",
+    "static/js/2.3f6f5c58.chunk.js.LICENSE": "/mastermindv2/static/js/2.3f6f5c58.chunk.js.LICENSE",
     "static/media/aww.wav": "/mastermindv2/static/media/aww.8b03bd43.wav",
+    "static/media/ding.wav": "/mastermindv2/static/media/ding.d8e08721.wav",
     "static/media/oops.wav": "/mastermindv2/static/media/oops.2d69083e.wav",
     "static/media/wrong.mp3": "/mastermindv2/static/media/wrong.5acd1a08.mp3",
     "static/media/yay.wav": "/mastermindv2/static/media/yay.caf29821.wav"
@@ -22,8 +23,8 @@
   "entrypoints": [
     "static/js/runtime-main.ffcaf099.js",
     "static/css/2.4364cc03.chunk.css",
-    "static/js/2.04b0b70e.chunk.js",
+    "static/js/2.3f6f5c58.chunk.js",
     "static/css/main.129e750d.chunk.css",
-    "static/js/main.f1911127.chunk.js"
+    "static/js/main.1375d370.chunk.js"
   ]
 }
