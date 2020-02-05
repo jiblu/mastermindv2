@@ -11,7 +11,7 @@ const Button = styled.button`
   padding: 5px;
   cursor: ${props => props.cursor ? props.cursor : 'pointer'};
   &:hover {
-    font-size: calc(${Metrics.fontSize.small}px + 2px)
+    font-size: calc(${Metrics.fontSize.small}px + 0.5px)
   } 
 
 `
