@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "gh-pages": "^2.2.0",
@@ -27,6 +28,7 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "rodal": "^1.7.0",
+    "sinon": "^8.1.1",
     "styled-components": "^5.0.0",
     "uifx": "^2.0.7"
   },
