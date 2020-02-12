@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { saveSettings, startGame, toggleSound } from '../Actions/Index.js'
+import axios from 'axios'
+import { saveSettings, startGame, toggleSound, saveTopScores } from '../Actions/Index.js'
 import Stack from '../Components/Stack.jsx'
 import Input from '../Components/Input.jsx'
 import Text from '../Components/Text.jsx'
@@ -30,6 +31,19 @@ class Settings extends Component {
   handleSubmit () {
     this.props.saveSettings(this.state)
       .then(() => this.props.startGame())
+      .then(() => {
+        // make an axios get call for that user
+        // save the scores to the redux store
+        axios.get(`/user?username=${this.props.username}`)
+          .then(resp => {
+            const topScores = resp.data.scores
+            this.props.saveTopScores(topScores)
+          })
+          .catch(err => {
+            throw err
+          })
+        // when in leaderboard grab the scores from the store
+      })
   }
 
   render () {
@@ -69,7 +83,8 @@ class Settings extends Component {
 const mapStateToProps = state => {
   return {
     username: state.username,
-    level: state.level
+    level: state.level,
+    topScores: state.topScores
   }
 }
 

@@ -8,6 +8,7 @@ export const LOSE_GAME = 'LOSE_GAME'
 export const EXIT_GAME = 'EDIT_GAME'
 export const UPDATE_GUESSES_SCORE = 'UPDATE_GUESSES_SCORE'
 export const TOGGLE_SOUND = 'TOGGLE_SOUND'
+export const SAVE_TOP_SCORES = 'SAVE_TOP_SCORES'
 
 export const saveSettings = (settings) => {
   const max = settings.level === 'normal' ? 7 : settings.level === 'nightmare' ? 8 : 9
@@ -42,6 +43,8 @@ export const exitGame = () => ({ type: EXIT_GAME })
 export const updateGuessesScore = (guessesLeft, score) => ({ type: UPDATE_GUESSES_SCORE, guessesLeft: guessesLeft, score: score })
 
 export const toggleSound = () => {
-  console.log(`sound offing`)
+  console.log('sound offing')
   return ({ type: TOGGLE_SOUND })
 }
+
+export const saveTopScores = (topScores) => ({ type: SAVE_TOP_SCORES, topScores: topScores })

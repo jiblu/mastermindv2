@@ -53,8 +53,8 @@ const ToggleElement = props => {
     <Stack horizontal align='center'>
       <Label text={props.text} />
       <ToggleWrapper>
-        <Toggle id="checkbox" type="checkbox" onClick={() => props.onClick()} />
-        <ToggleLabel htmlFor="checkbox"/>
+        <Toggle id='checkbox' type='checkbox' onClick={() => props.onClick()} />
+        <ToggleLabel htmlFor='checkbox' />
       </ToggleWrapper>
     </Stack>
   )

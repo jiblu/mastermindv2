@@ -6,7 +6,8 @@ import {
   LOSE_GAME,
   EXIT_GAME,
   UPDATE_GUESSES_SCORE,
-  TOGGLE_SOUND
+  TOGGLE_SOUND,
+  SAVE_TOP_SCORES
 } from '../Actions/Index'
 
 const initialState = {
@@ -20,7 +21,8 @@ const initialState = {
   guesses: [],
   gameStatus: null,
   confetti: false,
-  allowSound: true
+  allowSound: true,
+  topScores: []
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -75,6 +77,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         allowSound: newSound
+      }
+    case SAVE_TOP_SCORES:
+      return {
+        ...state,
+        topScores: action.topScores
       }
     default:
       return state

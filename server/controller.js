@@ -9,6 +9,7 @@ const controller = {
   getUser: (req, res) => {
     const { username } = req.params
     Users.findOne({ username: username })
+      .sort({ scores: 'desc' })
       .then(data => res.status(200).send(data))
       .catch(err => res.status(404).send(err))
   },

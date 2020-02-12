@@ -6,7 +6,7 @@ const path = require('path')
 
 const router = require('./router.js')
 const app = express()
-const PORT = 3000
+const PORT = 8000
 
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({ extended: true }))
