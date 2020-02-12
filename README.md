@@ -14,6 +14,7 @@ When I made the decision to work on Version 2, I considered how I could re-organ
 #### On your local machine
 - Open your local machine's terminal
 - `git clone https://github.com/jiblu/mastermindv2.git`
+- `cd mastermindv2`
 - `npm install`
 - `npm start`
 - Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
