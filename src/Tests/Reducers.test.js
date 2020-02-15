@@ -47,6 +47,18 @@ describe('authenticate reducer', () => {
     })
   })
 
+  // it('handles save guess', () => {
+  //   const state = {
+  //     ...initialState,
+  //     guesses: [{ 1: 2 }, { 2: 2 }],
+  //   }
+  //   expect(reducer(state, { type: SAVE_GUESS, guessObject: {} })).to.eql({
+  //     ...state,
+  //     guesses: state.guesses.push({}),
+  //     guessesLeft: initialState.guessesLeft - 1
+  //   })
+  // })
+
   it('handles win game', () => {
     expect(reducer(initialState, { type: WIN_GAME })).to.eql({
       ...initialState,
