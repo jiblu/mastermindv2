@@ -49,7 +49,12 @@ describe('authenticate reducer', () => {
     })
   })
 
-
+  it('handles toggle sound', () => {
+    expect(reducer(initialState, { type: TOGGLE_SOUND })).to.eql({
+      ...initialState,
+      allowSound: !initialState.allowSound
+    })
+  })
 })
 
 /*
