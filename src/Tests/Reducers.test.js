@@ -21,6 +21,25 @@ describe('authenticate reducer', () => {
     expect(reducer(undefined, {})).to.eql(initialState)
   })
 
+  it('handles save settings', () => {
+    const action = {
+      type: SAVE_SETTINGS,
+      settings: {
+        username: 'player123',
+        level: 'normal',
+        rangeUpperLimit: 7,
+        secretCode: 1234
+      }
+    }
+    expect(reducer(initialState, action)).to.eql({
+      ...initialState,
+      username: action.settings.username,
+      level: action.settings.level,
+      rangeUpperLimit: action.settings.rangeUpperLimit,
+      secretCode: action.settings.secretCode
+    })
+  })
+
   it('handles start game', () => {
     expect(reducer(initialState, { type: START_GAME })).to.eql({
       ...initialState,
