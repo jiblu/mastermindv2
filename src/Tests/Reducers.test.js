@@ -27,4 +27,20 @@ describe('authenticate reducer', () => {
       playing: true
     })
   })
+
+  it('handles win game', () => {
+    expect(reducer(initialState, { type: WIN_GAME })).to.eql({
+      ...initialState,
+      gameStatus: 'win',
+      confetti: true
+    })
+  })
+
+
 })
+
+/*
+https://medium.com/building-ibotta/testing-arrays-and-objects-with-chai-js-4b372310fe6d
+
+https://willowtreeapps.com/ideas/best-practices-for-unit-testing-with-a-react-redux-approach
+*/
