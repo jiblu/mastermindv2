@@ -34,7 +34,7 @@ class Settings extends Component {
       .then(() => {
         // make an axios get call for that user
         // save the scores to the redux store
-        axios.get(`/user?username=${this.props.username}`)
+        axios.get(`api/user?username=${this.props.username}`)
           .then(resp => {
             const topScores = resp.data.scores
             this.props.saveTopScores(topScores)

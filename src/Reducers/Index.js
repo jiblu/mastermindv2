@@ -10,7 +10,7 @@ import {
   SAVE_TOP_SCORES
 } from '../Actions/Index'
 
-const initialState = {
+export const initialState = {
   username: 'guest',
   level: 'normal',
   playing: false,
@@ -25,7 +25,7 @@ const initialState = {
   topScores: []
 }
 
-const rootReducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
   const newGuessesLeft = state.guessesLeft - 1
   const newGuesses = state.guesses.slice(0)
   const newScore = state.score - 10
@@ -88,4 +88,4 @@ const rootReducer = (state = initialState, action) => {
   }
 }
 
-export default rootReducer
+// export default rootReducer

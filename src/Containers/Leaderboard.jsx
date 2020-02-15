@@ -6,7 +6,8 @@ import Text from '../Components/Text.jsx'
 const Leaderboard = props => (
   <Stack vertical>
     <Text size='small' color='secondary'>Leaderboard</Text>
-    <ol>
+    {JSON.stringify(props.topScores)}
+    {/* <ol>
       {this.props.topScores.map((scoreObject, i) => {
         return (
           <li key={i}>
@@ -14,7 +15,7 @@ const Leaderboard = props => (
           </li>
         )
       })}
-    </ol>
+    </ol> */}
   </Stack>
 )
 
