@@ -36,6 +36,12 @@ describe('authenticate reducer', () => {
     })
   })
 
+  it('handles lose game', () => {
+    expect(reducer(initialState, { type: LOSE_GAME })).to.eql({
+      ...initialState,
+      gameStatus: 'lose'
+    })
+  })
 
 })
 
