@@ -43,6 +43,13 @@ describe('authenticate reducer', () => {
     })
   })
 
+  it('handles exit game', () => {
+    expect(reducer(initialState, { type: EXIT_GAME })).to.eql({
+      ...initialState
+    })
+  })
+
+
 })
 
 /*
