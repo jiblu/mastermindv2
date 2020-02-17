@@ -98,6 +98,16 @@ describe('authenticate reducer', () => {
       allowSound: !initialState.allowSound
     })
   })
+
+  it('handles save top scores', () => {
+    expect(reducer(initialState, {
+      type: SAVE_TOP_SCORES,
+      topScores: 10
+    })).to.eql({
+      ...initialState,
+      topScores: 10
+    })
+  })
 })
 
 /*
