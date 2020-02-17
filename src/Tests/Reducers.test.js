@@ -80,6 +80,18 @@ describe('authenticate reducer', () => {
     })
   })
 
+  it('handles update guesses score', () => {
+    expect(reducer(initialState, {
+      type: UPDATE_GUESSES_SCORE,
+      guessesLeft: 2,
+      score: 10
+    })).to.eql({
+      ...initialState,
+      guessesLeft: 2,
+      score: 10
+    })
+  })
+
   it('handles toggle sound', () => {
     expect(reducer(initialState, { type: TOGGLE_SOUND })).to.eql({
       ...initialState,
