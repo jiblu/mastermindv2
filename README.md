@@ -1,5 +1,7 @@
 # Mastermind v.2
 
+(This is the coding challenge that led to an offer with LinkedIn for their REACH program - ultimately rescinded due to Covid-19)
+
 This is my version of the mastermind game where you, the "codebreaker", can have 10 attempts at breaking a 4 digit code. After each guess, the game provides some limited feedback that can be used to help you get closer to breaking the code.
 
 Version 1 can be played [here](https://jiblu.github.io/masterm1nd-game/) - code available [here](https://github.com/jiblu/masterm1nd-game).
